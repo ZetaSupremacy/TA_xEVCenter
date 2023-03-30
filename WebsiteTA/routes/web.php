@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registrasi', [PengunjungController::class, 'registrasi'])->name('registrasi');
+Route::resource('pengunjung', PengunjungController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
