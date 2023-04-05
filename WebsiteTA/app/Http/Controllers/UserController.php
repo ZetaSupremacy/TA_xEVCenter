@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Models\pengunjung;
 
 class UserController extends Controller
 {
@@ -21,6 +23,15 @@ class UserController extends Controller
         }
 
         return back()->with('loginerror', 'login Gagal');
+
+    }
+
+    public function testQR() {
+
+        // $pengunjung = pengunjung::first();
+        $pengunjung = QrCode::generate('admin1');
+
+        return view('testQR', compact('pengunjung'));
 
     }
 }
