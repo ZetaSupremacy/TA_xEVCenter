@@ -17,7 +17,7 @@
     <form method="post" action=" " id="form-reservation-xev" method="post" novalidate="">
         <input type="hidden" name="_token" value="0IJziL5EHfppnXoJtecvK7ecPEVLX15kKG7FHQ68">
         <div class="box-reservation-xev my-3 py-5">
-            <div class="card border-radius-8 p-5">
+            <div class="card border-radius-8 p-5 mx-4">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
@@ -51,6 +51,15 @@
                                         <input name="email" placeholder="email" required="required" type="email" class="form-control " id="Email">
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="">
+                                    <label for="phone-number" class="form-label text-semibold">Nomor Telepon</label>
+                                                <input name="phone_number[]" data-parsley-pattern="[0-9\s\-\+\(\)]*" placeholder="+62 081XXXXXXXX" min="1" minlength="10" maxlength="13" required="required" type="text" class="form-control " id="phone-number">
+                                    
+                                </div>
+                            </div>
                         </div>                   
                         <div class="col-md-8">
                             <div class="mb-3">
@@ -59,8 +68,8 @@
                                         <input name="address" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\s]*" data-parsley-error-message="Format Is Invalid" placeholder="Address" required="required" type="text" class="form-control " id="address-person">                         
                                 </div>
                             </div>
-                        </div>                       
-                        <div class="col-md-4 mb-3">
+                        </div>
+                        <div class="col-md-5 mb-3">
                             <div class="custom-form-session">
                                 <label for="session" class="form-label text-semibold">Pilih Sesi</label>
                                 <select name="select_session" class="form-select select-session" id="session" required="">
@@ -72,7 +81,7 @@
                                             Session 2 ( 01.00 PM - 03.00 PM )
                                         </option>                                                
                                 </select>
-                            </div>
+                            </div>                       
                         </div>                        
                         <div class="col-md-4 mb-3">
                             <div class="flex-between w-100">
@@ -89,12 +98,12 @@
             </div>
         </div>       
 
-        <hr>
+        <hr class="mx-4">
 
         <div class="visitor-list my-3 py-5" id="dynamic-visitor-list">
             <h2 class="mx-5 mb-4 d-block">Daftar Pengunjung</h2>    
             <div class="visitor-list-default">
-                <div class="card p-5 border-radius-8">
+                <div class="card p-5 border-radius-8 mx-4">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -149,17 +158,6 @@
                                     <option value="9"> Public </option>
                                 </select>
                             </div>
-                            
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <div class="">
-                                        <label for="phone-number" class="form-label text-semibold">Nomor Telepon</label>
-                                                    <input name="phone_number[]" data-parsley-pattern="[0-9\s\-\+\(\)]*" placeholder="+62 081XXXXXXXX" min="1" minlength="10" maxlength="13" required="required" type="text" class="form-control " id="phone-number">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
 
                         </div>
                     </div>
@@ -168,7 +166,7 @@
         </div>
         
 
-        <div class="col-md-12 my-4">
+        <div class="col-md-12 my-4 mx-4">
             <div id="card-error" class="card border-radius-8 p-5 section-license">
                 <div class="card-body">
 
