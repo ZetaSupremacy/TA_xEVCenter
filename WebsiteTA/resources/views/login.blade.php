@@ -1,20 +1,45 @@
-@extends('layouts.navbar')
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
+  </head>
+  <body>
 
-<div class="containerform border p-3 mb-5 bg-body rounded">
-        <center><a style=" font-size: medium; font-weight:bold;"> LOGIN</a></center>
-          <hr>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-7 col-lg-7 d-md-block" style="min-height:100vh; background-color: #1076A1;">
+      <div class="h-100 d-flex align-items-center justify-content-center">
+        <img alt="failed to upload" src="https://telkomuniversityofficial-my.sharepoint.com/personal/fabiov_student_telkomuniversity_ac_id/Documents/Tugas%20Akhir/Desain/IconOrLogo/Logo%20xEV%20Center%20White.png" width="45%" height="45%"/>
+      </div>
+    </nav>
+
+    <main class="col ms-sm-auto px-md-5">
+      <div class="h-100 d-flex align-items-center">
+        <form class="w-100" action="/login" method="POST">
+            @csrf
+              <div class="m-4">
+                <input type="name" class="form-control " id="name" placeholder="Email" name = "name" required autofocus value={{ old('name') }}>
+              </div>
+              
+              <div class="m-4 d-flex">
+                <input type="password" class="form-control " id="password" placeholder="Password" name = "password">
+              </div>
+              <div class="m-4 d-flex justify-content-end">
+                <button type="submit" class="btn btn-dark d-grid gap-2 col-5 mb-3 rounded-pill ml-auto" name = "login">LOGIN</button>
+              </div>
+            </form>
+      </div>
+    </main>
+      
+        {{-- <div class="m-auto" > 
           
-        <form action="/test" method="POST">
-          @csrf
-            <div class="m-4">
-              <label for="name" class="form-label">name</label>
-              <input type="name" class="form-control" id="name" placeholder="Masukan Alamat E-Mail" name = "name" required autofocus value={{ old('name') }}>
-            </div>
-            
-            <div class="m-4 ">
-              <label for="password" class="form-label">Kata Sandi</label>
-              <input type="password" class="form-control" id="password" placeholder="Kata Sandi Anda" name = "password">
-            </div>
-            <center><button type="submit" class="btn btn-primary d-grid gap-2 col-5 mx-auto mb-3 rounded-pill" name = "login">Sign In</button></center>
-          </form>
-            </div>
+              </div>   --}}
+      
+</div>
+</div>  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+</html>

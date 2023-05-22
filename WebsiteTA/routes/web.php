@@ -32,11 +32,11 @@ Route::get('/test2', function () {
 });
 
 
-Route::get('/test', function () {
+Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/test', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'login']);
 
 
 Route::middleware('auth')->group(function () {
