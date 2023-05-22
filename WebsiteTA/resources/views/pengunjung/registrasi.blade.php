@@ -104,7 +104,7 @@
                             <div class="mb-3">
                                 <div class="">
                                     <label for="list-visitor-name" class="form-label text-semibold">Daftar Nama Pengunjung</label>
-                                                <input name="visitor_name[]" placeholder="List Visitor Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="list-visitor-name">          
+                                            <input name="visitor_name[]" placeholder="List Visitor Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="list-visitor-name">          
                                 </div>
                             </div>
                         </div>

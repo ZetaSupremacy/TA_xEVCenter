@@ -8,7 +8,6 @@
 
     <body> 
       <div width="200px">
-
         <div id="reader" width="200px"></div>
       </div>
 
