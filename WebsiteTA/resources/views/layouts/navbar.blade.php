@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="bg-black text-center">
-                  <p style="color: white;">
+                  <p style="color: white;" class="mb-0">
                     Copyright © 2023 PT Toyota Motor Manufacturing Indonesia. All Rights Reserved.
                   </p>
                 </div>

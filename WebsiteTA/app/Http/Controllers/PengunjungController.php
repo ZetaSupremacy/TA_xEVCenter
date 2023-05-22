@@ -46,36 +46,32 @@ class PengunjungController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('nama',$request->nama);
-        Session::flash('nohp',$request->nohp);
-        Session::flash('alamat',$request->alamat);
-        Session::flash('email',$request->email);
-        Session::flash('lembaga',$request->lembaga);
-        Session::flash('namalembaga',$request->namalembaga);
+        Session::flash('list-visitor-name',$request->nama);
+        Session::flash('gender',$request->gender);
+        Session::flash('age',$request->umur);
+        Session::flash('job-title',$request->pekerjaan);
+        Session::flash('institusi',$request->institusi);
 
         $request->validate([
-            'nama'=>'required:pengunjung,nama',
-            'nohp'=>'required|numeric|:pengunjung,nohp',
-            'alamat'=>'required:pengunjung,alamat',
-            'email'=>'required:pengunjung,email',
-            'lembaga'=>'required:pengunjung,lembaga',
-            'namalembaga'=>'required:pengunjung,namalembaga',
+            'list-visitor-name'=>'required:pengunjung,list-visitor-name',
+            'gender'=>'required|numeric|:pengunjung,gender',
+            'age'=>'required:pengunjung,age',
+            'job-title'=>'required:pengunjung,pekerjaan',
+            'institusi'=>'required:pengunjung,institusi',
         ],[
-            'nama.required'=>'Nama Wajib Diisi!',
-            'nohp.required'=>'Nomer Handphone Wajib Diisi!',
-            'nohp.numeric'=>'Nomer Handphone Wajib Dalam Angka!',
-            'alamat.required'=>'Alamat Wajib Diisi!',
-            'email.required'=>'Email Wajib Diisi!',
-            'lembaga.required'=>'Lembaga Wajib Dipilih!',
-            'namalembaga.required'=>'Nama Lembaga Wajib Diisi!',
+            'list-visitor-name.required'=>'Nama Wajib Diisi!',
+            'gender.required'=>'Gender Wajib Diisi!',
+            // 'nohp.numeric'=>'Nomer Handphone Wajib Dalam Angka!',
+            'age.required'=>'Umur Wajib Diisi!',
+            'job-title.required'=>'Pekerjaan Wajib Diisi!',
+            'institusi.required'=>'Institusi Wajib Dipilih!',
         ]);
         $data = [
-            'nama'=>$request->nama,
-            'nohp'=>$request->nohp,
-            'alamat'=>$request->alamat,
-            'email'=>$request->email,
-            'lembaga'=>$request->lembaga,
-            'namalembaga'=>$request->namalembaga,
+            'list-visitor-name'=>$request->nama,
+            'gender'=>$request->gender,
+            'age'=>$request->umur,
+            'job-title'=>$request->pekerjaan,
+            'institusi'=>$request->institusi,
         ];
         pengunjung::create($data);
         return redirect()->to('pengunjung')->with('success', 'Terimakasih Sudah Mendaftarkan Diri Untuk Mengunjungi xEV Center, Kami Tunggu Kehadiran Anda :)');
@@ -114,30 +110,27 @@ class PengunjungController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama'=>'required:pengunjung,nama',
-            'nohp'=>'required|numeric|:pengunjung,nohp',
-            'alamat'=>'required:pengunjung,alamat',
-            'email'=>'required:pengunjung,email',
-            'lembaga'=>'required:pengunjung,lembaga',
-            'namalembaga'=>'required:pengunjung,namalembaga',
+            'list-visitor-name'=>'required:pengunjung,list-visitor-name',
+            'gender'=>'required|numeric|:pengunjung,gender',
+            'age'=>'required:pengunjung,age',
+            'job-title'=>'required:pengunjung,pekerjaan',
+            'institusi'=>'required:pengunjung,institusi',
         ],[
-            'nama.required'=>'Nama Wajib Diisi!',
-            'nohp.required'=>'Nomer Handphone Wajib Diisi!',
-            'nohp.numeric'=>'Nomer Handphone Wajib Dalam Angka!',
-            'alamat.required'=>'Alamat Wajib Diisi!',
-            'email.required'=>'Email Wajib Diisi!',
-            'lembaga.required'=>'Lembaga Wajib Dipilih!',
-            'namalembaga.required'=>'Nama Lembaga Wajib Diisi!',
+            'list-visitor-name.required'=>'Nama Wajib Diisi!',
+            'gender.required'=>'Gender Wajib Diisi!',
+            // 'nohp.numeric'=>'Nomer Handphone Wajib Dalam Angka!',
+            'age.required'=>'Umur Wajib Diisi!',
+            'job-title.required'=>'Pekerjaan Wajib Diisi!',
+            'institusi.required'=>'Institusi Wajib Dipilih!',
         ]);
         $data = [
-            'nama'=>$request->nama,
-            'nohp'=>$request->nohp,
-            'alamat'=>$request->alamat,
-            'email'=>$request->email,
-            'lembaga'=>$request->lembaga,
-            'namalembaga'=>$request->namalembaga,
+            'list-visitor-name'=>$request->nama,
+            'gender'=>$request->gender,
+            'age'=>$request->umur,
+            'job-title'=>$request->pekerjaan,
+            'institusi'=>$request->institusi,
         ];
-        pengunjung::where('nama' ,$id)->update($data);
+        pengunjung::where('list-visitor-name' ,$id)->update($data);
         return redirect()->to('pengunjung')->with('success', 'Data Telah Berhasil Diubah');
     }
 
@@ -149,7 +142,7 @@ class PengunjungController extends Controller
      */
     public function destroy($id)
     {
-        pengunjung::where('nama', $id)->delete();
+        pengunjung::where('list-visitor-name', $id)->delete();
         return redirect()->to('pengunjung')->with('success', 'Berhasil Menghapus Data');
     }
 }
