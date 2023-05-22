@@ -16,16 +16,16 @@ class PengunjungController extends Controller
      */
     public function index(Request $request)
     {
-        $katakunci = $request->$katakunci;
-        if(strlen($katakunci)){
-            $data = pengunjung::where('nama', 'like', "%$katakunci%")
-                    ->orWhere('nohp', 'like', "%$katakunci%")
-                    ->orWhere('email', 'like', "%$katakunci%");
-        } else {
-            $data = pengunjung::orderBy('id','desc')->get();
-        }
+        // $katakunci = $request->$katakunci;
+        // if(strlen($katakunci)){
+        //     $data = pengunjung::where('nama', 'like', "%$katakunci%")
+        //             ->orWhere('nohp', 'like', "%$katakunci%")
+        //             ->orWhere('email', 'like', "%$katakunci%");
+        // } else {
+        //     $data = pengunjung::orderBy('id','desc')->get();
+        // }
         
-        return view('pengunjung.index')->with('data', $data);
+        // return view('pengunjung.index')->with('data', $data);
     }
 
     /**

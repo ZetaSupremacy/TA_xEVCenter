@@ -27,6 +27,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/test2', function () {
+    return view('registrasi');
+});
+
 
 Route::get('/test', function () {
     return view('login');
