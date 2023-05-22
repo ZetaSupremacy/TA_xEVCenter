@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('pengunjung', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('nohp');
-            $table->string('alamat');
-            $table->string('email');
-            $table->string('lembaga');
-            $table->string('namalembaga');
+            $table->string('list-visitor-name');
+            $table->string('gender');
+            $table->integer('age');
+            $table->string('job-title');
+            $table->string('institusi');
             $table->timestamps();
         });
     }
