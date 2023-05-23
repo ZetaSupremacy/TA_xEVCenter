@@ -16,16 +16,7 @@ class PengunjungController extends Controller
      */
     public function index(Request $request)
     {
-        // $katakunci = $request->$katakunci;
-        // if(strlen($katakunci)){
-        //     $data = pengunjung::where('nama', 'like', "%$katakunci%")
-        //             ->orWhere('nohp', 'like', "%$katakunci%")
-        //             ->orWhere('email', 'like', "%$katakunci%");
-        // } else {
-        //     $data = pengunjung::orderBy('id','desc')->get();
-        // }
-        
-        // return view('pengunjung.index')->with('data', $data);
+        return view('pengunjung.registrasi');
     }
 
     /**
@@ -35,7 +26,7 @@ class PengunjungController extends Controller
      */
     public function create()
     {
-        return view('pengunjung.registrasi');
+        
     }
 
     /**
@@ -46,35 +37,45 @@ class PengunjungController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('list-visitor-name',$request->nama);
-        Session::flash('gender',$request->gender);
-        Session::flash('age',$request->umur);
-        Session::flash('job-title',$request->pekerjaan);
-        Session::flash('institusi',$request->institusi);
+        
+        // $data = $request;
+        
+        // $pengunjung = new pengunjung;
+        // $pengunjung->visitor_name = $data['visitor_name'];
+        // $pengunjung->gender = $data['gender'];
+        // $pengunjung->age = $data['age'];
+        // $pengunjung->job_title = $data['job_title'];
+        // $pengunjung->institution_category = $data['institution_category'];
+        // $pengunjung->save();
+        $count = count($request['visitor_name']);
+        
+        if ($count > 0) {
+            for ($i = 0 ; $i < $count ; $i++ )
+            {
+                $pengunjung = new pengunjung;
+                $pengunjung->visitor_name = $request['visitor_name'][$i];
+                $pengunjung->gender = $request['gender'][$i];
+                $pengunjung->age = $request['age'][$i];
+                $pengunjung->job_title = $request['job_title'][$i];
+                $pengunjung->intitution_category = $request['institution_category'][$i];
 
-        $request->validate([
-            'list-visitor-name'=>'required:pengunjung,list-visitor-name',
-            'gender'=>'required|numeric|:pengunjung,gender',
-            'age'=>'required:pengunjung,age',
-            'job-title'=>'required:pengunjung,pekerjaan',
-            'institusi'=>'required:pengunjung,institusi',
-        ],[
-            'list-visitor-name.required'=>'Nama Wajib Diisi!',
-            'gender.required'=>'Gender Wajib Diisi!',
-            // 'nohp.numeric'=>'Nomer Handphone Wajib Dalam Angka!',
-            'age.required'=>'Umur Wajib Diisi!',
-            'job-title.required'=>'Pekerjaan Wajib Diisi!',
-            'institusi.required'=>'Institusi Wajib Dipilih!',
-        ]);
-        $data = [
-            'list-visitor-name'=>$request->nama,
-            'gender'=>$request->gender,
-            'age'=>$request->umur,
-            'job-title'=>$request->pekerjaan,
-            'institusi'=>$request->institusi,
-        ];
-        pengunjung::create($data);
-        return redirect()->to('pengunjung')->with('success', 'Terimakasih Sudah Mendaftarkan Diri Untuk Mengunjungi xEV Center, Kami Tunggu Kehadiran Anda :)');
+                $pengunjung->save();
+            }
+            
+                // dd($request);
+                // array(
+                //     visitor_name => $request['visitor_name'][$i],
+                //     gender => $request['gender'][$i],
+                //     age => $request['age'][$i],
+                //     job_title => $request['job_title'][$i],
+                //     institution_category => $request['institution_category'][$i],
+                // );
+                // dd($pengunjung);
+                // pengunjung::create($data);
+            
+        }
+
+        return redirect()->back()->with('status', 'Data Berhasil Di Input');
     }
 
     /**
@@ -96,8 +97,7 @@ class PengunjungController extends Controller
      */
     public function edit($id)
     {
-        $data = pengunjung::where('nama', $id)->first();
-        return view('pengunjung.edit')->with ('data', $data);
+        
     }
 
     /**
@@ -109,29 +109,7 @@ class PengunjungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'list-visitor-name'=>'required:pengunjung,list-visitor-name',
-            'gender'=>'required|numeric|:pengunjung,gender',
-            'age'=>'required:pengunjung,age',
-            'job-title'=>'required:pengunjung,pekerjaan',
-            'institusi'=>'required:pengunjung,institusi',
-        ],[
-            'list-visitor-name.required'=>'Nama Wajib Diisi!',
-            'gender.required'=>'Gender Wajib Diisi!',
-            // 'nohp.numeric'=>'Nomer Handphone Wajib Dalam Angka!',
-            'age.required'=>'Umur Wajib Diisi!',
-            'job-title.required'=>'Pekerjaan Wajib Diisi!',
-            'institusi.required'=>'Institusi Wajib Dipilih!',
-        ]);
-        $data = [
-            'list-visitor-name'=>$request->nama,
-            'gender'=>$request->gender,
-            'age'=>$request->umur,
-            'job-title'=>$request->pekerjaan,
-            'institusi'=>$request->institusi,
-        ];
-        pengunjung::where('list-visitor-name' ,$id)->update($data);
-        return redirect()->to('pengunjung')->with('success', 'Data Telah Berhasil Diubah');
+        
     }
 
     /**
@@ -142,7 +120,6 @@ class PengunjungController extends Controller
      */
     public function destroy($id)
     {
-        pengunjung::where('list-visitor-name', $id)->delete();
-        return redirect()->to('pengunjung')->with('success', 'Berhasil Menghapus Data');
+        
     }
 }
