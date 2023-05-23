@@ -48,6 +48,7 @@ class PengunjungController extends Controller
         // $pengunjung->institution_category = $data['institution_category'];
         // $pengunjung->save();
         $count = count($request['visitor_name']);
+        dd($request);
         
         if ($count > 0) {
             for ($i = 0 ; $i < $count ; $i++ )
@@ -58,7 +59,6 @@ class PengunjungController extends Controller
                 $pengunjung->age = $request['age'][$i];
                 $pengunjung->job_title = $request['job_title'][$i];
                 $pengunjung->intitution_category = $request['institution_category'][$i];
-
                 $pengunjung->save();
             }
             
