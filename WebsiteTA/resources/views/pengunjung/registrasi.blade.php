@@ -100,7 +100,7 @@
 
     @livewire('registrasi')
     
-    {{-- <div class="col-md-12 my-4 mx-4">
+    <div class="col-md-12 my-4 mx-4">
         <div id="card-error" class="card border-radius-8 p-5 section-license">
             <div class="card-body">
 
@@ -118,16 +118,16 @@
                 <div id="container-error-aggrement" class="mt-3"></div>
             </div>
         </div>
-    </div> --}}
-    {{-- <div class="flex-between w-100 mb-4 submit-reservation-xev">
+    </div>
+    <div class="flex-between w-100 mb-4 submit-reservation-xev">
         <div class="flex-end w-100 px-4 py-1">
             <button class="btn btn-primary flex-center py-1 px-4 border-radius-8" type="submit" id="submit-reservation" style="background-color: #008DB9; color: white; font-weight: bold; float: right;">Submit</button>
         </div>
     </div>
   </form>
-</div> --}}
+</div>
 
-{{-- <div class="modal fade" id="privacy-policy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="privacy-policy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -155,10 +155,6 @@
         </div>
     </div>
 </div>
-
-
- --}}
-
-            {{-- </div> --}}
+            </div>
 
 @endsection
