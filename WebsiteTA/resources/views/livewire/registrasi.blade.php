@@ -12,7 +12,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="custom-form-date">
-                                <label for="arrival-date" class="form-label text-semibold">Tanggal Kedatangan</label>
+                                <label for="arrival-date" class="form-label text-semibold">Arrival Date</label>
                                     <input readonly="readonly" placeholder="DD/MM/YYYY" name="arrival_date" value="" required="required" type="text" class="form-control " id="arrival-date">      
                             </div>
                         </div>
@@ -20,7 +20,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="group-name" class="form-label text-semibold">Nama Group</label>
+                                <label for="group-name" class="form-label text-semibold">Group Name</label>
                                     <input name="group_name" placeholder="Group Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="group-name">                                  
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="booking-person-name" class="form-label text-semibold">Nama Pemesan</label>
+                                <label for="booking-person-name" class="form-label text-semibold">PIC Group Name</label>
                                      <input name="booking_person_name" placeholder="Booking Person Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="booking-person-name">          
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="phone-number" class="form-label text-semibold">Nomor Telepon</label>
+                                <label for="phone-number" class="form-label text-semibold">Phone Number</label>
                                             <input name="phone_number[]" data-parsley-pattern="[0-9\s\-\+\(\)]*" placeholder="+62 081XXXXXXXX" min="1" minlength="10" maxlength="13" required="required" type="text" class="form-control " id="phone-number">
                                 
                             </div>
@@ -53,14 +53,14 @@
                     <div class="col-md-8">
                         <div class="mb-3">
                             <div class="">
-                                <label for="address-person" class="form-label text-semibold">Alamat</label>
+                                <label for="address-person" class="form-label text-semibold">Address</label>
                                     <input name="address" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\s]*" data-parsley-error-message="Format Is Invalid" placeholder="Address" required="required" type="text" class="form-control " id="address-person">                         
                             </div>
                         </div>
                     </div>
                     <div class="col-md-5 mb-3">
                         <div class="custom-form-session">
-                            <label for="session" class="form-label text-semibold">Pilih Sesi</label>
+                            <label for="session" class="form-label text-semibold">Choose Session</label>
                             <select name="select_session" class="form-select select-session" id="session" required="">
                                 <option value="">Choose Session</option>                                                                           
                                     <option value="1">
@@ -74,7 +74,7 @@
                     </div>                        
                     <div class="col-md-4 mb-3">
                         <div class="flex-between w-100">
-                            <label for="total-visitor" class="form-label text-semibold">Jumlah Pengunjung</label>
+                            <label for="total-visitor" class="form-label text-semibold">Number Of Visitor</label>
                             <div class="quota-checking">
                             </div>
                         </div>
@@ -92,7 +92,7 @@
 
 
 <div class="visitor-list my-3 py-5" id="dynamic-visitor-list">
-    <h2 class="mx-5 mb-4 d-block">Daftar Pengunjung</h2> 
+    <h2 class="mx-5 mb-4 d-block">Visitor List</h2> 
     <div class="visitor-list-default">
         @for($i=0; $i < $pengunjung ; $i++)   
         <div class="card p-5 border-radius-8 mx-4 mb-3">
@@ -101,22 +101,22 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="list-visitor-name{{ $i }}" class="form-label text-semibold">Daftar Nama Pengunjung</label>
+                                <label for="list-visitor-name{{ $i }}" class="form-label text-semibold">Name</label>
                                         <input name="visitor_name[]" placeholder="List Visitor Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="list-visitor-name{{ $i }}">          
                             </div>
                         </div>
                     </div>
                         <div class="col-md-3 mb-3">
-                            <label for="gender{{ $i }}" class="form-label text-semibold">Jenis Kelamin</label>
+                            <label for="gender{{ $i }}" class="form-label text-semibold">Gender</label>
                             <select name="gender" class="form-select" id="gender{{ $i }}" required="">
-                                <option value="">Pilih</option>
-                                <option value="m"> Laki Laki </option>
-                                <option value="f"> Perempuan </option>
+                                <option value="">Choose</option>
+                                <option value="m"> Male </option>
+                                <option value="f"> Female </option>
                             </select>
                         </div>
                     <div class="col-md-1">
                         <div class="mb-3">
-                            <label for="age{{ $i }}" class="form-label text-semibold">Usia</label>
+                            <label for="age{{ $i }}" class="form-label text-semibold">Age</label>
 
                             <input type="number" name="age[]" data-parsley-error-message="Invalid!!" placeholder="age" min="1" minlength="1" maxlength="2" data-parsley-errors-container="#age-container" class="form-control" required="" id="age{{ $i }}">
 
@@ -128,7 +128,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="job-title{{ $i }}" class="form-label text-semibold">Pekerjaan</label>
+                                <label for="job-title{{ $i }}" class="form-label text-semibold">Job Title</label>
                                             <input name="job_title[]" placeholder="Job Title" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="job-title{{ $i }}">
                                 
                             </div>
@@ -136,9 +136,9 @@
                     </div>
                     
                     <div class="col-md-3 mb-3">
-                        <label for="institusi{{ $i }}" class="form-label text-semibold">Kategori Institusi</label>
+                        <label for="institusi{{ $i }}" class="form-label text-semibold">Institution Category</label>
                         <select name="institution_category[]" class="form-select" id="institusi{{ $i }}" required="">
-                            <option value="">Pilih</option>
+                            <option value="">Choose</option>
                             <option value="1"> Government </option>
                             <option value="2"> Association </option>
                             <option value="3"> University </option>
