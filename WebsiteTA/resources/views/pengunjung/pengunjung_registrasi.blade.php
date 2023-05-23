@@ -2,15 +2,17 @@
 
 @section('content')
 
-<div class="inner-content-tabbing-reservation my-3 py-3">
-    <div class="content-reservation">
+{{-- <div class="inner-content-tabbing-reservation my-3 py-3">
+    <div class="content-reservation"> --}}
 
-        <h2 class="mx-5 mb-4 d-block">Detail Reservasi</h2>
 
 <form action='{{ url('pengunjung')}}' method='post'>
     @csrf
-    {{-- <input type="hidden" name="_token" value="0IJziL5EHfppnXoJtecvK7ecPEVLX15kKG7FHQ68">
+    <input type="hidden" name="_token" value="0IJziL5EHfppnXoJtecvK7ecPEVLX15kKG7FHQ68">
     <div class="box-reservation-xev my-3 py-5">
+
+        <h2 class="mx-5 mb-4 d-block">Detail Reservasi</h2>
+
         <div class="card border-radius-8 p-5 mx-4">
             <div class="card-body">
                 <div class="row">
@@ -90,80 +92,14 @@
                 </div>
             </div>
         </div>
-    </div>        --}}
-
+    </div>       
+    
+    
     <hr class="mx-4">
 
-    <div class="visitor-list my-3 py-5" id="dynamic-visitor-list">
-        <h2 class="mx-5 mb-4 d-block">Daftar Pengunjung</h2>    
-        <div class="visitor-list-default">
-            <div class="card p-5 border-radius-8 mx-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <div class="">
-                                    <label for="list-visitor-name" class="form-label text-semibold">Daftar Nama Pengunjung</label>
-                                            <input name="visitor_name[]" placeholder="List Visitor Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="list-visitor-name">          
-                                </div>
-                            </div>
-                        </div>
-                            <div class="col-md-3 mb-3">
-                                <label for="gender" class="form-label text-semibold">Jenis Kelamin</label>
-                                <select name="gender" class="form-select" id="gender" required="">
-                                    <option value="">Pilih</option>
-                                    <option value="m"> Laki Laki </option>
-                                    <option value="f"> Perempuan </option>
-                                </select>
-                            </div>
-                        <div class="col-md-1">
-                            <div class="mb-3">
-                                <label for="age" class="form-label text-semibold">Usia</label>
 
-                                <input type="number" name="age[]" data-parsley-error-message="Invalid!!" placeholder="age" min="1" minlength="1" maxlength="2" data-parsley-errors-container="#age-container" class="form-control" required="" id="age">
-
-                                <div id="age-container"></div>
-                            </div>
-                        </div>
-                        
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <div class="">
-                                    <label for="job-title" class="form-label text-semibold">Pekerjaan</label>
-                                                <input name="job_title[]" placeholder="Job Title" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="job-title">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 mb-3">
-                            <label for="institusi" class="form-label text-semibold">Kategori Institusi</label>
-                            <select name="institution_category[]" class="form-select" id="institusi" required="">
-                                <option value="">Pilih</option>
-                                <option value="1"> Government </option>
-                                <option value="2"> Association </option>
-                                <option value="3"> University </option>
-                                <option value="4"> SHS/Vocational </option>
-                                <option value="5"> Internal </option>
-                                <option value="6"> Supply Chain </option>
-                                <option value="7"> Media </option>
-                                <option value="8"> Key Opinion Leader </option>
-                                <option value="9"> Public </option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-between w-100 mb-4 mt-3 add-visitor-xev">
-                <div class="flex-end w-100 px-4 py-1">
-                    <a href="" class="btn btn-primary mx-2" style="float: right; background-color: #04BD00; color: black;"><i class="fa-solid fa-plus fa-lg px-2"></i>Add Visitor</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    @livewire('registrasi')
     
-
     {{-- <div class="col-md-12 my-4 mx-4">
         <div id="card-error" class="card border-radius-8 p-5 section-license">
             <div class="card-body">
@@ -183,13 +119,13 @@
             </div>
         </div>
     </div> --}}
-    <div class="flex-between w-100 mb-4 submit-reservation-xev">
+    {{-- <div class="flex-between w-100 mb-4 submit-reservation-xev">
         <div class="flex-end w-100 px-4 py-1">
             <button class="btn btn-primary flex-center py-1 px-4 border-radius-8" type="submit" id="submit-reservation" style="background-color: #008DB9; color: white; font-weight: bold; float: right;">Submit</button>
         </div>
     </div>
   </form>
-</div>
+</div> --}}
 
 {{-- <div class="modal fade" id="privacy-policy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -223,6 +159,6 @@
 
  --}}
 
-            </div>
+            {{-- </div> --}}
 
 @endsection

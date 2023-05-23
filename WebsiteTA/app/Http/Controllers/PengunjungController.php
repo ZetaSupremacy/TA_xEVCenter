@@ -35,7 +35,7 @@ class PengunjungController extends Controller
      */
     public function create()
     {
-        return view('pengunjung.registrasi');
+        return view('pengunjung.pengunjung_registrasi');
     }
 
     /**
@@ -51,7 +51,6 @@ class PengunjungController extends Controller
         Session::flash('age',$request->umur);
         Session::flash('job-title',$request->pekerjaan);
         Session::flash('institusi',$request->institusi);
-
         $request->validate([
             'list-visitor-name'=>'required:pengunjung,list-visitor-name',
             'gender'=>'required|numeric|:pengunjung,gender',
