@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Reservasi_Session', function (Blueprint $table) {
+        Schema::create('reservation_sessions', function (Blueprint $table) {
             $table->id();            
             $table->string('session_name');
             $table->time('start_time');
             $table->time('end_time');
-            $table->integer('kuota')->default(20);
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Reservasi_Session');
+        Schema::dropIfExists('reservation_sessions');
     }
 };

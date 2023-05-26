@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pengunjung extends Model
+class reservation_group extends Model
 {
     use HasFactory;
-    protected $fillable = ['visitor_name','gender','age','job_title','institution_category'];
-    protected $table = 'pengunjung';
+    protected $guarded = [
+        'id'
+    ];    
+
+    public function reservation_session() {
+        return $this->belongsTo(reservation_session::class);
+    }
 
     public function group_member() {
         return $this->hasMany(group_member::class);

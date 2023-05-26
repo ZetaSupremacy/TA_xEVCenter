@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('Group_Member', function (Blueprint $table) {
             $table->id();
-            $table->integer('pengunjung_id');
+            $table->integer('pengunjung_id')->nullable();
             $table->integer('reservasi_id');
             $table->boolean('Kehadiran')->default(false);
         });
