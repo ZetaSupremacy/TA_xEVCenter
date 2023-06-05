@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -135,6 +136,64 @@
             font-weight: bolder;
             text-align: center;
         }
+
+        /* Responsive Styles */
+
+        @media (max-width: 1920px) {
+            .dashboard {
+                display: flex;
+            }
+
+            .sidebar {
+                width: 250px;
+            }
+
+            .main-content {
+                flex-grow: 1;
+                margin-top: 50px;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 250px;
+                right: 0;
+                z-index: 1;
+            }
+
+            .b {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 1366px) {
+            .dashboard {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                flex-grow: 1;
+                margin-left: 50px;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 200px;
+                right: 0;
+                z-index: 1;
+            }
+
+            .b {
+                padding-top: 80px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -196,7 +255,47 @@
                     <div class="widget-title">Total Submitted Feedback</div>
                 </div>
             </div>
-            
+            <br>
+            <br>
+            <br>
+            <div class="bar">
+                <canvas id="myChart"></canvas>
+                <script>
+                    // Get the canvas element
+                    var ctx = document.getElementById('myChart').getContext('2d');
+
+                    // Chart data
+                    var data = {
+                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: 'Bar Chart',
+                            data: [12, 19, 3, 5, 2, 3],
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // Chart options
+                    var options = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                            beginAtZero: true
+                            }
+                        }
+                    };
+
+                    // Create the chart
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+                </script>
+            </div>
+        
 
         </div>
     </div>
