@@ -46,10 +46,10 @@
                       </div>
                       <div class="col pt-5"> 
                         <h2 style="color: white;">Location :</h2>
-                        <p style="font-size: 25px; color: black; margin-bottom: 0; font-weight: bold;">
+                        <p style="font-size: 20px; color: black; margin-bottom: 0; font-weight: bold;">
                           Jalan Trans Heksa No. 01 Kawasan Industri KJIR, Margamulya, Karawang, Jawa Barat 41361
                         </p>
-                        <p style="font-size: 25px; color: black; margin-bottom: 0; font-weight: bold;">
+                        <p style="font-size: 20px; color: black; margin-bottom: 0; font-weight: bold;">
                           Phone: 08111099382
                         </p>
                       </div>
