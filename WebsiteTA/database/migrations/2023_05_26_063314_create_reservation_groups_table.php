@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        
         Schema::create('reservation_groups', function (Blueprint $table) {
             $table->id();
             // $table->foreignId('pengunjung_id')->references('id')->on('pengunjung')->onDelete('cascade');
@@ -25,7 +26,8 @@ return new class extends Migration
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('registration_confirmation_at')->nullable();
-            $table->integer('group_code');
+            $table->integer('group_code')->unique();
+            $table->integer('total_member');
             $table->timestamps();
         });
     }

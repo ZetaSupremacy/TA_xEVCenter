@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\emailController;
 
 
 /*
@@ -22,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('pengunjung', PengunjungController::class);
-
+Route::get('/pengunjung/reservasiConfirmation/{id}', [PengunjungController::class, 'reservasiConfirmation']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,6 +32,8 @@ Route::get('/dashboard', function () {
 Route::get('/test2', function () {
     return view('registrasi');
 });
+
+Route::get('/email',[emailController::class, 'emailVerifikasi']);
 
 
 Route::get('/login', function () {

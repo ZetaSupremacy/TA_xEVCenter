@@ -13,10 +13,10 @@ class reservation_group extends Model
     ];    
 
     public function reservation_session() {
-        return $this->belongsTo(reservation_session::class);
+        return $this->belongsTo(reservation_session::class, 'reservation_sessions_id');
     }
 
     public function group_member() {
-        return $this->hasMany(group_member::class);
+        return $this->hasMany(group_member::class, 'reservasi_id');
     }
 }

@@ -13,6 +13,6 @@ class reservation_session extends Model
     use HasFactory;
 
     public function reservation_group() {
-        return $this->hasMany(reservation_group::class);
+        return $this->hasMany(reservation_group::class, 'reservation_sessions_id');
     }
 }

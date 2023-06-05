@@ -44,15 +44,16 @@ class Registrasi extends Component
 
     public function checkKuota($tanggal, $sesi) {
       $this->reservation_group = reservation_group::where('tanggal', $tanggal)->where('reservation_sessions_id', $sesi)->get();
-      // dd($this->reservation_group->count());
-      if ($this->reservation_group->count() == 20){
+      $this->reservation_group = collect($this->reservation_group)->sum('total_member');
+      // dd($this->reservation_group);
+      if ($this->reservation_group == 20){
         $this->kuota == 0;
         return;
-      } elseif ($this->reservation_group->count() == 0) {
+      } elseif ($this->reservation_group == 0) {
         $this->kuota = 20;
         return;
       } else {
-        $this->kuota == 20 - $this->reservation_group;
+        $this->kuota = 20 - $this->reservation_group;
         return;
       }
       
