@@ -35,7 +35,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="custom-form-date">
-                                    <label for="booking-person-name" class="form-label text-semibold">PIC Group Name</label>
+                                    <label for="booking-person-name" class="form-label text-semibold"> <b>PIC Group Name :</b> </label>
                                     <p>{{ $reservation_group->pic_name }}</p>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="group-name" class="form-label text-semibold">Group Name</label>
+                                    <label for="group-name" class="form-label text-semibold"><b>Group Name :</b></label>
                                     <p>{{ $reservation_group->nama_group }}</p>                                  
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="total-visitor" class="form-label text-semibold">Total Visitor</label>
+                                    <label for="total-visitor" class="form-label text-semibold"><b>Total Visitor :</b></label>
                                     <p>{{ $reservation_group->total_member }}</p>          
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="phone-number" class="form-label text-semibold">Phone Number</label>
+                                    <label for="phone-number" class="form-label text-semibold"><b>Phone Number :</b></label>
                                     <p>{{ $reservation_group->no_telp }} </p>
                                 </div>
                             </div>
@@ -72,21 +72,21 @@
                         <div class="col-md-7">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="arrival-date" class="form-label text-semibold">Arrival Date:</label>
+                                    <label for="arrival-date" class="form-label text-semibold"><b>Arrival Date :</b></label>
                                     <P> {{ $reservation_group->tanggal }} </P>                         
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-5 mb-3">
                             <div class="px-5">
-                                <label for="session" class="form-label text-semibold">Session</label>
+                                <label for="session" class="form-label text-semibold"><b>Session :</b></label>
                                 <p>{{ $reservation_group->reservation_session->session_name }}</p>
                             </div>                       
                         </div>       
                         
                         <div class="col-md-2 mb-3 ">
                             <div class="flex-between w-100" style="display: flex; justify-content: flex-end;">
-                                <label for="start-visitor" class="form-label text-semibold">Start:</label>
+                                <label for="start-visitor" class="form-label text-semibold"><b>Start :</b></label>
                             </div>
                             <div class="col text-md-end">
                                 <p class="mb-0">{{ $start_time }}</p>
@@ -101,7 +101,7 @@
 
                         <div class="col-md-2 mb-3">
                             <div class="flex-between w-100">
-                                <label for="start-visitor" class="form-label text-semibold">End:</label>
+                                <label for="start-visitor" class="form-label text-semibold"><b>End :</b></label>
                                 <p>{{ $end_time }}</p>
                             </div>
                         </div>

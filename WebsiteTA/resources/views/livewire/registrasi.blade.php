@@ -12,7 +12,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="custom-form-date">
-                                    <label for="arrival-date" class="form-label text-semibold">Arrival Date</label>
+                                    <label for="arrival-date" class="form-label"><b>Arrival Date</b></label>
                                         <input wire:model="date" wire:ignore readonly="readonly" placeholder="DD/MM/YYYY" name="tanggal" value="" required="required" type="text" class="form-control " id="arrival-date">      
                                 </div>
                             </div>
@@ -20,7 +20,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="group-name" class="form-label text-semibold">Group Name</label>
+                                    <label for="group-name" class="form-label text-semibold"><b>Group Name</b></label>
                                         <input name="nama_group" placeholder="Group Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="group-name">                                  
                                 </div>
                             </div>
@@ -28,7 +28,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="booking-person-name" class="form-label text-semibold">PIC Group Name</label>
+                                    <label for="booking-person-name" class="form-label text-semibold"><b>PIC Group Name</b></label>
                                          <input name="pic_name" placeholder="Booking Person Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="booking-person-name">          
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="Email" class="form-label text-semibold">Email</label>
+                                    <label for="Email" class="form-label text-semibold"><b>Email</b></label>
                                         <input name="email" placeholder="email" required="required" type="email" class="form-control " id="Email">
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="phone-number" class="form-label text-semibold">Phone Number</label>
+                                    <label for="phone-number" class="form-label text-semibold"><b>Phone Number</b></label>
                                                 <input name="no_telp" data-parsley-pattern="[0-9\s\-\+\(\)]*" placeholder="+62 081XXXXXXXX" min="1" minlength="10" maxlength="13" required="required" type="text" class="form-control " id="phone-number">
                                     
                                 </div>
@@ -53,14 +53,14 @@
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <div class="">
-                                    <label for="address-person" class="form-label text-semibold">Address</label>
+                                    <label for="address-person" class="form-label text-semibold"><b>Address</b></label>
                                         <input name="alamat" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\s]*" data-parsley-error-message="Format Is Invalid" placeholder="Address" required="required" type="text" class="form-control " id="address-person">                         
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-5 mb-3">
                             <div class="custom-form-session">
-                                <label for="session" class="form-label text-semibold">Choose Session</label>
+                                <label for="session" class="form-label text-semibold"><b>Choose Session</b></label>
                                 <select name="reservation_sessions_id" wire:model="sessionselected" wire:ignore class="form-select select-session" id="session" required disabled>
                                     <option value="">Choose Session</option>
                                     @foreach($sessions as $session) 
@@ -75,7 +75,7 @@
                         </div>                        
                         <div class="col-md-4 mb-3">
                             <div class="flex-between w-100">
-                                <label for="total-visitor" class="form-label text-semibold">Number Of Visitor</label>
+                                <label for="total-visitor" class="form-label text-semibold"><b>Number Of Visitor</b></label>
                                 <div class="quota-checking">
                                 </div>
                             </div>
@@ -103,14 +103,14 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="list-visitor-name{{ $i }}" class="form-label text-semibold">Name</label>
+                                <label for="list-visitor-name{{ $i }}" class="form-label text-semibold"><b>Name</b></label>
                                         <input name="visitor_name[]" placeholder="List Visitor Name" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="list-visitor-name{{ $i }}">          
                             </div>
                         </div>
                     </div>
                       
                         <div class="col-md-3 mb-3">
-                            <label for="gender{{ $i }}" class="form-label text-semibold">Gender</label>
+                            <label for="gender{{ $i }}" class="form-label text-semibold"><b>Gender</b></label>
                             <select name="gender[]" class="form-select" id="gender{{ $i }}" required="">
                                 <option value="">Choose</option>
                                 <option value="male"> Male </option>
@@ -119,7 +119,7 @@
                         </div>
                     <div class="col-md-1">
                         <div class="mb-3">
-                            <label for="age{{ $i }}" class="form-label text-semibold">Age</label>
+                            <label for="age{{ $i }}" class="form-label text-semibold"><b>Age</b></label>
 
                             <input type="number" name="age[]" data-parsley-error-message="Invalid!!" placeholder="age" min="1" minlength="1" maxlength="2" data-parsley-errors-container="#age-container" class="form-control" required="" id="age{{ $i }}">
 
@@ -131,7 +131,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="job-title{{ $i }}" class="form-label text-semibold">Job Title</label>
+                                <label for="job-title{{ $i }}" class="form-label text-semibold"><b>Job Title</b></label>
                                             <input name="job_title[]" placeholder="Job Title" data-parsley-pattern="[a-zA-Z0-9.,-_()\.\,\-\(\)\_\/\s]*" data-parsley-error-message="Format Is Invalid" required="required" type="text" class="form-control " id="job-title{{ $i }}">
                                             
                             </div>
@@ -139,7 +139,7 @@
                     </div>
                     
                     <div class="col-md-3 mb-3">
-                        <label for="institusi{{ $i }}" class="form-label text-semibold">Institution Category</label>
+                        <label for="institusi{{ $i }}" class="form-label text-semibold"><b>Institution Category</b></label>
                         <select name="intitution_category[]" class="form-select" id="institusi{{ $i }}" required="">
                             <option value="">Choose</option>
                             <option value="Government"> Government </option>
