@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('registration_confirmation_at')->nullable();
-            $table->integer('group_code')->unique();
+            $table->integer('group_code')->unique()->nullable();
             $table->integer('total_member');
             $table->timestamps();
         });

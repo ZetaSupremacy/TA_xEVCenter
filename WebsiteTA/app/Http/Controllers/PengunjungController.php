@@ -45,8 +45,7 @@ class PengunjungController extends Controller
      */
     public function store(Request $request)
     {
-        
-
+    
         $rulesGroup = [
         'reservation_sessions_id' => 'required',
         'pic_name' => 'required',
@@ -173,7 +172,13 @@ class PengunjungController extends Controller
     {
         $decryptedID = Crypt::decryptString($id);
         $reservation_group = reservation_group::where('id', $decryptedID)->first();
-        return view('pengunjung.visitor_detail_user',compact('reservation_group'));
         
+        if ( $reservation_group->registration_confirmation_at != null ){
+            return back()->with('message', 'Data sudah di registrasi sebelumnya silakan check email anda untuk melihat barcode');
+        }
+
+        $cryptCode = Crypt::encryptString($reservation_group->group_code);
+        return view('pengunjung.visitor_detail_user',compact('reservation_group', 'cryptCode'));
     }
+
 }

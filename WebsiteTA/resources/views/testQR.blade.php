@@ -7,9 +7,10 @@
     </head>
 
     <body> 
-      <div width="200px">
+      {!! QrCode::size(200)->generate('Contoh teks untuk QR Code') !!}
+      {{-- <div width="200px">
         <div id="reader" width="200px"></div>
-      </div>
+      </div> --}}
 
 
         

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\emailController;
-
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +33,9 @@ Route::get('/test2', function () {
     return view('registrasi');
 });
 
-Route::get('/email',[emailController::class, 'emailVerifikasi']);
-
+Route::get('/email/{group_code}',[emailController::class, 'emailVerifikasi']);
+Route::post('/email/confirmationCode/{id}',[emailController::class, 'codeVerifikasi']);
+Route::get('/email/deleted/{group_code}/{hashCode}',[emailController::class, 'registrationDeleted']);
 
 Route::get('/login', function () {
     return view('login');

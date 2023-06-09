@@ -7,20 +7,25 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Attachment;
+use Illuminate\Mail\Message;
 use Illuminate\Queue\SerializesModels;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class sendMail extends Mailable
+class sendCode extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $group_code;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public $email;
-    public function __construct($email)
+    public function __construct($group_code)
     {
-        $this->email = $email;   
+        $this->group_code = $group_code;
     }
 
     /**
@@ -31,7 +36,7 @@ class sendMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Email Code',
+            subject: 'Registration Succesfull',
         );
     }
 
@@ -43,7 +48,7 @@ class sendMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.emailVerifikasi',
+            view: 'mail.emailCodeConfirmation',
         );
     }
 
@@ -54,6 +59,9 @@ class sendMail extends Mailable
      */
     public function attachments()
     {
-        return [];
+        return [
+            attachment::fromData(fn() => $this->group_code['pdf']->output(),'test.pdf')
+            ->withMime('application/pdf')
+        ];
     }
 }

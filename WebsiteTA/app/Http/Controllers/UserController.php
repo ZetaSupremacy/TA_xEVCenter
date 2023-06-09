@@ -29,7 +29,8 @@ class UserController extends Controller
     public function testQR() {
 
         // $pengunjung = pengunjung::first();
-        $pengunjung = "admin1";
+        $pengunjung = QrCode::generate('Make me into a QrCode!');
+        QrCode::generate('Make me into a QrCode!');
 
         return view('testQR', compact('pengunjung'));
 

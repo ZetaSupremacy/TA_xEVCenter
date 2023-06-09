@@ -18,7 +18,6 @@
                                     <h5 class="modal-title" id="exampleModalLabel">Syarat &amp; Kententuan</h5>
                             </div>
             <div class="modal-body">
-
                         <p>Dengan mengirimkan formulir ini, saya telah membaca secara seksama dan menyetujui Syarat dan
                         Kententuan serta Kebijakan Privasi yang berlaku.</p>
 
