@@ -181,4 +181,31 @@ class PengunjungController extends Controller
         return view('pengunjung.visitor_detail_user',compact('reservation_group', 'cryptCode'));
     }
 
+    public function attendConfirmation(Request $request)
+    {
+
+        if($request['member'] == null) {
+            return redirect('/validateCode')->with('message', 'Data Tidak Valid'); 
+        }
+
+        if(now() != $request['tanggal']) {
+            return redirect('/validateCode')->with('message', 'Tanggal tidak valid'); 
+        }
+
+        $count = count($request['member']);
+        
+        for ($i = 0 ; $i < $count ; $i++ ) {
+            group_member::where('id', $request['member'][$i])->update([
+                'Kehadiran' => true,
+            ]);
+        }
+
+        reservation_group::where('id', $request['groupid'])->update([
+            'group_code' => null,
+            'attend_confirmation_at' => now(),
+        ]);
+
+        return redirect('/validateCode')->with('message', 'Data sudah berhasil di tambahkan'); 
+        }
+
 }

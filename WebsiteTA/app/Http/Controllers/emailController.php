@@ -47,7 +47,7 @@ class emailController extends Controller
             Mail::to($reservasi_group->email)->send(new sendMail($mail));
             
             reservation_group::where('id', $reservasi_group->id)->update([
-                'email_verified_at' => now()
+                'email_verified_at' => now(),
             ]);
             }
 

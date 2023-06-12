@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Models\pengunjung;
+use App\Models\reservation_group;
 
 class UserController extends Controller
 {
@@ -26,13 +27,18 @@ class UserController extends Controller
 
     }
 
-    public function testQR() {
+    public function validateCode() {
 
-        // $pengunjung = pengunjung::first();
-        $pengunjung = QrCode::generate('Make me into a QrCode!');
-        QrCode::generate('Make me into a QrCode!');
+        return view('admin.checkin');
 
-        return view('testQR', compact('pengunjung'));
+    }
 
+    public function ConfirmationCode(Request $request) {
+        $reservasi_group = reservation_group::where('group_code', $request->booking_code)->first(); 
+        if ($reservasi_group == null) {
+            return back()->with('message', 'Code Salah');
+        }
+        return view('admin.checkinConfirmation', compact('reservasi_group'));
+    
     }
 }
