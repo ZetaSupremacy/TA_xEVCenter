@@ -188,7 +188,7 @@ class PengunjungController extends Controller
             return redirect('/validateCode')->with('message', 'Data Tidak Valid'); 
         }
 
-        if(now() != $request['tanggal']) {
+        if(now()->format("m/d/Y") != $request['tanggal']) {
             return redirect('/validateCode')->with('message', 'Tanggal tidak valid'); 
         }
 
