@@ -1,15 +1,6 @@
+@extends('layouts.navbar_admin')
 
-<!doctype html>
-<html lang="en">
-    <head>  
-        <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    </head>
-
-    <body>
-        
+@section('content')
 @if (session('message'))
 <div class="alert alert-info alert-dismissible fade show" role="alert">
   {{ session('message') }}
@@ -19,7 +10,7 @@
         <form action="/ConfirmationCode" method="post">
             @csrf
             {{-- <input type="hidden" name="booking_code" id="booking_code"> --}}
-
+            <br><br><br>
       <div class="inner-content-tabbing-visitordetail my-3 py-3">
         <div class="col-md-12">
             <h1 class="mx-5 mb-3 d-block">
@@ -30,8 +21,8 @@
         <div class="col-md-12">
             <hr class="mx-5 mb-3 d-block" />
         </div>
-
-        <div class="col-md-12" style="margin-left: 450px">
+        <br><br>
+        <div class="col-md-12" style="margin-left: 45px">
             <h6 for="Email" class="form-label text-semibold">
                 Registration Code
             </h6>
@@ -43,7 +34,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-left: 450px;
+                margin-left: 45px;
             "
         >
             <div class="mb-3 input-group">
@@ -80,7 +71,7 @@
             </div>
         </div>
     </div>
-
+    <br><br><br><br><br><br>
 
     <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,7 +93,7 @@
   </div>
 
         </form>
-    </body>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -142,4 +133,4 @@
 
     </script>
 
-       </html>
+@endsection

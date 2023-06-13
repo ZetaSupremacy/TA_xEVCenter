@@ -1,12 +1,12 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Profile | {{ auth()->user()->nama}}</title>
 
-    <!-- Bootstrap core CSS -->
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
-    <!-- Custom styles for this template -->
+   
     <link href="/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
@@ -59,8 +59,10 @@
 
     </nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> -->
+    @extends('layouts.navbar_dashboard')
+
+    @section('content')
         <div class="inner-content-tabbing-visitordetail my-3 py-3">
             <div class="mx-3 mb-3">
                 
@@ -74,8 +76,8 @@
 
                 <div class="col-md-12 mt-5">
                     <div class="card" style="background-color: #C3C3C3;">
-                            <div class="card-body mt-2 mx-3">
-                                <h3>Allow Days <i class="fa-solid fa-star-of-life fa-2xs" style="color: #FF0000;"></i></h3>
+                            <div class="card-body border-radius-8 mt-2 mx-3">
+                                <h3>Allow Days <i class="fa-solid fa-star-of-life fa-2xs " style="color: #FF0000;"></i></h3>
                             </div>
                             <div class="card-body mx-3">
                                 <input type="text" class="form-control" placeholder="Masukkan Hari Misal : Kamis, Jumat" aria-label="Username" aria-describedby="addon-wrapping">
@@ -89,8 +91,9 @@
 
             </div>
         </div>
+        @endsection
             
-    </main>
+    <!-- </main>
 </div>
 </div>
       
@@ -101,4 +104,4 @@
       
       <script src="/js/dashboard.js"> </script> 
     </body>
-</html>
+</html> -->
