@@ -58,8 +58,7 @@
 
             .main-content {
                 flex-grow: 1;
-                margin-left: 20px;
-                background-color: #ff0000;
+                background-color: #f5f5f5;
             }
 
             .navbar {
@@ -267,9 +266,9 @@
                     <li><hr /></li>
                 </ul>
             </div>
-            <div class="main-content">
+            <div>
                 <nav class="navbar bg-body-tertiary" style="opacity: 54%">
-                    <div class="navbar">
+                    <div class="container">
                         <div
                             class="profile-container"
                             style="display: flex; gap: 10px"
@@ -302,10 +301,12 @@
                             </div>
                         </div>
                     </div>
-                </nav> 
-                <div>
-                    <p>test</p>
-                </div> 
+                    <div class="container">
+                            @include('komponen.pesan')
+
+                            @yield('content')
+                    </div>
+                </nav>
             </div>
         </div>
     </body>
