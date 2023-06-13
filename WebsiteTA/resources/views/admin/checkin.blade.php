@@ -1,6 +1,7 @@
 @extends('layouts.navbar_admin')
 
-@section('content')
+    @section('content')
+        
 @if (session('message'))
 <div class="alert alert-info alert-dismissible fade show" role="alert">
   {{ session('message') }}
@@ -10,7 +11,7 @@
         <form action="/ConfirmationCode" method="post">
             @csrf
             {{-- <input type="hidden" name="booking_code" id="booking_code"> --}}
-            <br><br><br>
+
       <div class="inner-content-tabbing-visitordetail my-3 py-3">
         <div class="col-md-12">
             <h1 class="mx-5 mb-3 d-block">
@@ -21,7 +22,7 @@
         <div class="col-md-12">
             <hr class="mx-5 mb-3 d-block" />
         </div>
-        <br><br>
+
         <div class="col-md-12" style="margin-left: 45px">
             <h6 for="Email" class="form-label text-semibold">
                 Registration Code
@@ -71,8 +72,12 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br>
 
+
+    <div class="mx-auto" style="width:400px; height:400px">
+        <div id="reader" width="200px"></div>
+      </div>
+    </div>
     <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -83,54 +88,11 @@
         </div>
         <div class="modal-body">
           
-        <div class="mx-auto" style="width:400px; height:400px">
-            <div id="reader" width="200px"></div>
-          </div>
-        </div>
         
       </div>
     </div>
   </div>
 
         </form>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script> 
-    let isScanned = false;
-    let html5QrcodeScanner;
-    $('#exampleModal').on('show.bs.modal', function (event) {
-
-        let html5QrcodeScanner = new Html5QrcodeScanner(
-          "reader",
-          { fps: 10, qrbox: {width: 250, height: 250} },
-          /* verbose= */ false);
-          
-        html5QrcodeScanner.render(onScanSuccess);
     
-        function onScanSuccess(decodedText, decodedResult) {
-          // handle the scanned code as you like, for example:
-          if (!isScanned) {
-            isScanned = true; 
-            $('#booking_code').val(decodedText);
-            document.forms[0].submit();
-          }
-        }
-
-        $('#exampleModal').on('hidden.bs.modal', function (event) {
-    // Menghentikan pemindaian QR code
-    if (html5QrcodeScanner) {
-        html5QrcodeScanner.clear(); // Membersihkan layar scanner
-        html5QrcodeScanner.stop(); // Menghentikan pemindaian
-        isScanned = false; // Setel ulang status pemindaian
-    }
-});
-
-    });
-    
-
-    </script>
-
 @endsection
