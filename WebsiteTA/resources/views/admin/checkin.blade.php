@@ -1,7 +1,6 @@
 @extends('layouts.navbar_admin')
 
-    @section('content')
-        
+@section('content')
 @if (session('message'))
 <div class="alert alert-info alert-dismissible fade show" role="alert">
   {{ session('message') }}
@@ -11,7 +10,7 @@
         <form action="/ConfirmationCode" method="post">
             @csrf
             {{-- <input type="hidden" name="booking_code" id="booking_code"> --}}
-
+            <br><br><br>
       <div class="inner-content-tabbing-visitordetail my-3 py-3">
         <div class="col-md-12">
             <h1 class="mx-5 mb-3 d-block">
@@ -22,7 +21,7 @@
         <div class="col-md-12">
             <hr class="mx-5 mb-3 d-block" />
         </div>
-
+        <br><br>
         <div class="col-md-12" style="margin-left: 45px">
             <h6 for="Email" class="form-label text-semibold">
                 Registration Code
@@ -72,12 +71,8 @@
             </div>
         </div>
     </div>
+    <br><br><br><br><br><br>
 
-
-    <div class="mx-auto" style="width:400px; height:400px">
-        <div id="reader" width="200px"></div>
-      </div>
-    </div>
     <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -88,11 +83,14 @@
         </div>
         <div class="modal-body">
           
+        <div class="mx-auto" style="width:400px; height:400px">
+            <div id="reader" width="200px"></div>
+          </div>
+        </div>
         
       </div>
     </div>
   </div>
 
         </form>
-    
 @endsection
