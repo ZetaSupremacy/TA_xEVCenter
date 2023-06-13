@@ -74,10 +74,6 @@
     </div>
 
 
-    <div class="mx-auto" style="width:400px; height:400px">
-        <div id="reader" width="200px"></div>
-      </div>
-    </div>
     <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -88,6 +84,10 @@
         </div>
         <div class="modal-body">
           
+        <div class="mx-auto" style="width:400px; height:400px">
+            <div id="reader" width="200px"></div>
+            </div>
+        </div>
         
       </div>
     </div>
