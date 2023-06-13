@@ -58,7 +58,8 @@
 
             .main-content {
                 flex-grow: 1;
-                background-color: #f5f5f5;
+                margin-left: 20px;
+                background-color: #ffffff;
             }
 
             .navbar {
@@ -266,9 +267,9 @@
                     <li><hr /></li>
                 </ul>
             </div>
-            <div>
+            <div class="main-content">
                 <nav class="navbar bg-body-tertiary" style="opacity: 54%">
-                    <div class="container">
+                    <div class="navbar">
                         <div
                             class="profile-container"
                             style="display: flex; gap: 10px"
@@ -294,19 +295,22 @@
                                     width="10"
                                     height="10"
                                 />
-                                <div class="dropdown-content" style="position: relative;">
+                                <div
+                                    class="dropdown-content"
+                                    style="position: relative"
+                                >
                                     <a href="#">My Site</a>
                                     <a href="#">Log out</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container">
-                            @include('komponen.pesan')
-
-                            @yield('content')
-                    </div>
                 </nav>
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    @include('komponen.pesan')
+
+                    @yield('content')
+                </main>
             </div>
         </div>
     </body>
