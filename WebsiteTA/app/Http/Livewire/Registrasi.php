@@ -5,19 +5,21 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\reservation_session;
 use App\Models\reservation_group;
+use App\Models\setting;
 
 class Registrasi extends Component
 {
 
-    public $reservation_group, $date,$sessions,$sessionselected;
+    public $reservation_group, $date,$sessions,$sessionselected,$kuota,$dateInterval;
     public $kuotaDisabled = True; 
 
     public $pengunjung = 1;
-    public $kuota = 0;
     
     public function render()
     {       
         $this->sessions = reservation_session::all();
+        $this->kuota = setting::pluck('kuota')->first();
+        $this->dateInterval = setting::pluck('date_interval')->first();
         
         return view('livewire.registrasi'
         );
@@ -31,9 +33,6 @@ class Registrasi extends Component
     public function updatedDate($value) {
         $this->date = $value;
       }
-      public function updatedDKuota($value) {
-        dd($this->kuota);
-      }
 
 
       public function updatedSessionselected($value) {
@@ -45,15 +44,17 @@ class Registrasi extends Component
     public function checkKuota($tanggal, $sesi) {
       $this->reservation_group = reservation_group::where('tanggal', $tanggal)->where('reservation_sessions_id', $sesi)->get();
       $this->reservation_group = collect($this->reservation_group)->sum('total_member');
+      $kapasitas = setting::pluck('kuota')->first();
       // dd($this->reservation_group);
-      if ($this->reservation_group == 20){
-        $this->kuota == 0;
+      if ($this->reservation_group == $kapasitas){
+        $this->kuota = 0;
+        $this->pengunjung = 0 ;
         return;
       } elseif ($this->reservation_group == 0) {
-        $this->kuota = 20;
+        $this->kuota = $kapasitas;
         return;
       } else {
-        $this->kuota = 20 - $this->reservation_group;
+        $this->kuota = $kapasitas - $this->reservation_group;
         return;
       }
       

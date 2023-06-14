@@ -27,7 +27,7 @@
                         <br>
                         <center>
                         <form action='http://127.0.0.1:8000/email/deleted/{{ $group_code['code'] }}/{{ $group_code['codeHash'] }}' method='get'>
-                          {{-- @csrf --}}
+                          @csrf
                         <div class="">
                           <div class="">
                               <button class="" type="submit" id="submit-reservation" style="background-color: #EE0909; color: white; font-weight: bold;">Cancel Booking</button>

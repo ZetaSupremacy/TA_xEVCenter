@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function registrationDashboard(Request $request)
     {
-        $reservasi_group = $reservation_group = reservation_group::get();
+        $reservasi_group = $reservation_group = reservation_group::whereNotNull('group_code')->get();
         return view('admin.registrationDashboard',compact('reservasi_group'));
     }
 }

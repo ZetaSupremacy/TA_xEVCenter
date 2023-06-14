@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/validateCode', [UserController::class, 'validateCode']);
     Route::post('/ConfirmationCode', [UserController::class, 'ConfirmationCode']);
+    
+    //dashboard
     Route::get('/allowdate', function () {
         return view('admin.allowDate');
     });

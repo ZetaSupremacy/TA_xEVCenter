@@ -79,7 +79,7 @@
                                 <div class="quota-checking">
                                 </div>
                             </div>
-                            <select wire:model="pengunjung" class="form-select total-visitor" name="total_visitor" id="total-visitor"@if($kuotaDisabled) disabled @endif required>
+                            <select @if(!$kuotaDisabled)wire:model="pengunjung"@endif class="form-select total-visitor" name="total_visitor" id="total-visitor"@if($kuotaDisabled) disabled @endif required>
                                 <option value="" readonly="" selected>Number Of Visitor</option>
                                 @for($i=1; $i <= $kuota; $i++)
                                 <option value={{ $i }} readonly="">{{ $i }}</option>
@@ -204,8 +204,13 @@
     <script>
         document.addEventListener('livewire:load', () => {
             $( function() {
+                var today = new Date();
+                var startDate = new Date();
+                startDate.setDate(today.getDate() + @this.dateInterval);
                 $( "#arrival-date" ).datepicker(
-                    {minDate :new Date(),
+                    // startDate: startDate, // Mengatur tanggal awal menjadi startDate
+                    // minDate: startDate,
+                    {minDate :startDate,
                         maxDate: "+2m +1w",
                         beforeShowDay: function(date) {
                             var day = date.getDay(); // Mendapatkan hari (0: Minggu, 1: Senin, dst.)
