@@ -33,43 +33,7 @@
                             </div>
                         </div>
                         
-                        <table class="">
-                            <thead>
-                                <tr>
-                                    <th scope="col">PIC Name :</th>
-                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                    <th scope="col" align="">Group Name :</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">{{ $reservasi_group->pic_name }}</td>
-                                    <td></td>
-                                    <td scope="row" align="">{{ $reservasi_group->nama_group }}</td>
-                                </tr>                    
-                            </tbody>
-                        </table>
-                        
-                        <table class=" mt-4 mb-5">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Total Visitor :</th>
-                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                    <th scope="col" align="right">Phone Number :</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">{{ $reservasi_group->total_member }}</td>
-                                    <td></td>
-                                    <td scope="row" align="">{{ $reservasi_group->no_telp }} </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                            
-
-                        <!-- {{-- <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <div class="custom-form-date">
                                     <label for="booking-person-name" class="form-label text-semibold"> <b>PIC Group Name :</b> </label>
@@ -100,63 +64,13 @@
                                     <p>{{ $reservasi_group->no_telp }} </p>
                                 </div>
                             </div>
-                        </div>  --}} -->
+                        </div> 
 
 
                         <HR></HR>
                         
-                        <table class="">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Arrival Date :</th>
-                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                    <th scope="col" align="">Session :</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">{{ $reservasi_group->tanggal }}</td>
-                                    <td></td>
-                                    <td scope="row" align="">{{ $reservasi_group->reservation_session->session_name }}</td>
-                                </tr>                    
-                            </tbody>
-                        </table>
-                        <!-- <table class="mx- mt-4">
-                            <thead>
-                                <tr>
-                                    <th scope=""  align="">Arrival Date :</th>
-                                    <th></th>
-                                    <th scope="col" align="">Session :</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">{{ $reservasi_group->tanggal }}</td>
-                                    <td scope="row" align="right">{{ $reservasi_group->reservation_session->session_name }}</td>
-                                </tr>                    
-                            </tbody>
-                        </table> -->
                         
-                        <table class="mx- mt-3 mb-4">
-                            <thead>
-                                <tr>
-                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                    <th scope="col" align="right">start :</th>
-                                    <th scope="col" class=""><center>&nbsp;&nbsp;&nbsp;<hr width="250px" >&nbsp;&nbsp;&nbsp;</center></th>
-                                    <th scope="col">End :</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td scope="row" align="">{{ $start_time }}</td>
-                                    <td scope="row"></td>
-                                    <td>{{ $end_time }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <!-- <div class="col-md-9">
+                        <div class="col-md-9">
                             <div class="mb-3">
                                 <div class="">
                                     <label for="arrival-date" class="form-label text-semibold"><b>Arrival Date :</b></label>
@@ -191,12 +105,12 @@
                                 <label for="start-visitor" class="form-label text-semibold"><b>End :</b></label>
                                 <p>{{ $end_time }}</p>
                             </div>
-                        </div> --->
+                        </div>
 
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>      
         <div class="box-reservation-xev my-3 py-5">
             <div class="card border-radius-8 p-5 mx-5">
                 <div class="card-body">
