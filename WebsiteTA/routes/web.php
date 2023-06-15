@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\emailController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\settingController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -74,4 +75,8 @@ Route::middleware('auth')->group(function () {
 });
 //----------------------------------
 
+//feedback
+Route::resource('feedback', FeedbackController::class);
+
+//----------------------------------
 require __DIR__.'/auth.php';
