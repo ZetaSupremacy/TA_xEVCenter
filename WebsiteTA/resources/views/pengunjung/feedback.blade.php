@@ -759,7 +759,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" id="hev" data-parsley-multiple="type-xev-interest" data-parsley-errors-container="#type-xev-interest-container" value="hev" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" id="hev" data-parsley-multiple="type-xev-interest" data-parsley-errors-container="#type-xev-interest-container" value="HEV" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="hev">
                             
@@ -771,7 +771,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" data-parsley-multiple="type-xev-interest" id="phev" value="phev" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" data-parsley-multiple="type-xev-interest" id="phev" value="PHEV" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="phev">
                             
@@ -787,7 +787,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" data-parsley-multiple="type-xev-interest" id="bev" value="bev" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" data-parsley-multiple="type-xev-interest" id="bev" value="BEV" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="bev">
                             
@@ -801,7 +801,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" data-parsley-multiple="type-xev-interest" id="fcev" value="fcev" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_series" data-parsley-multiple="type-xev-interest" id="fcev" value="FCEV" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="fcev">
                             
@@ -834,7 +834,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" data-parsley-multiple="type-xev" type="radio" data-parsley-errors-container="#type-xev-container" name="car_type" id="mpv-5" value="1" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" data-parsley-multiple="type-xev" type="radio" data-parsley-errors-container="#type-xev-container" name="car_type" id="mpv-5" value="MPV 5 Seater" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="mpv-5">
                             
@@ -848,7 +848,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" data-parsley-multiple="type-xev" id="suv-5" value="2" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" data-parsley-multiple="type-xev" id="suv-5" value="SUV 5 Seater" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="suv-5">
                             
@@ -860,7 +860,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="small-seater" data-parsley-multiple="type-xev" value="3" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="small-seater" data-parsley-multiple="type-xev" value="Small 2 Seaters Car" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="small-seater">
                             
@@ -876,7 +876,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="mpv-7" data-parsley-multiple="type-xev" value="4" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="mpv-7" data-parsley-multiple="type-xev" value="MPV 7 Seater" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="mpv-7">
                             
@@ -888,7 +888,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="suv-7" data-parsley-multiple="type-xev" value="5" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="suv-7" data-parsley-multiple="type-xev" value="SUV 7 Seater" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="suv-7">
                             
@@ -900,7 +900,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="Sedan" data-parsley-multiple="type-xev" value="6" data-parsley-group="block-0">
+                                                                <input class="form-check-input global-hidden-interest" type="radio" name="car_type" id="Sedan" data-parsley-multiple="type-xev" value="Sedan" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="Sedan">
                             
