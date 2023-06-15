@@ -60,7 +60,7 @@ class sendCode extends Mailable
     public function attachments()
     {
         return [
-            attachment::fromData(fn() => $this->group_code['pdf']->output(),'test.pdf')
+            attachment::fromData(fn() => $this->group_code['pdf']->output(),'Detail Reservation.pdf')
             ->withMime('application/pdf')
         ];
     }

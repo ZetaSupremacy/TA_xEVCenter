@@ -203,18 +203,19 @@
 
     <script>
         document.addEventListener('livewire:load', () => {
+            // console.log(@this.allow_days);
             $( function() {
+                var disabledDays = @this.allow_days;
+                console.log(disabledDays)
                 var today = new Date();
                 var startDate = new Date();
                 startDate.setDate(today.getDate() + @this.dateInterval);
                 $( "#arrival-date" ).datepicker(
-                    // startDate: startDate, // Mengatur tanggal awal menjadi startDate
-                    // minDate: startDate,
                     {minDate :startDate,
                         maxDate: "+2m +1w",
                         beforeShowDay: function(date) {
                             var day = date.getDay(); // Mendapatkan hari (0: Minggu, 1: Senin, dst.)
-                return [(day == 2 || day == 4)]; // Menonaktifkan Selasa (2) dan Rabu (3)
+                            return [disabledDays.indexOf(day) != -1]; // Menonaktifkan Selasa (2) dan Rabu (3)
             }
         }
         );

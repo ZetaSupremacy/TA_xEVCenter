@@ -6,17 +6,21 @@ use Livewire\Component;
 use App\Models\reservation_session;
 use App\Models\reservation_group;
 use App\Models\setting;
+use App\Models\allow_day;
 
 class Registrasi extends Component
 {
 
-    public $reservation_group, $date,$sessions,$sessionselected,$kuota,$dateInterval;
+    public $reservation_group, $date,$sessions,$sessionselected,$kuota,$dateInterval,$allow_days;
     public $kuotaDisabled = True; 
 
     public $pengunjung = 1;
     
     public function render()
     {       
+      
+        $this->allow_days = allow_day::pluck('allow_days')->all();
+        $this->allow_days = json_encode($this->allow_days);
         $this->sessions = reservation_session::all();
         $this->kuota = setting::pluck('kuota')->first();
         $this->dateInterval = setting::pluck('date_interval')->first();

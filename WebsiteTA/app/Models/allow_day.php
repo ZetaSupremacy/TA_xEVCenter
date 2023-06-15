@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class setting extends Model
+class allow_day extends Model
 {
-    use HasFactory;
     public $timestamps = false;
-
-    protected $table = 'settings';
+    use HasFactory;
+    protected $table = 'Allow_Days';
         
     protected $guarded = [
         'id'
-    ]; 
+    ];    
 }

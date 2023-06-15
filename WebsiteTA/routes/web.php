@@ -6,6 +6,7 @@ use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\emailController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\settingController;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -65,9 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/kuota', function () {
         return view('admin.kuota');
     });
-    Route::get('/setting', function () {
-        return view('admin.setting');
-    });
+    Route::get('/setting', [settingController::class, 'index']);
+    Route::post('/kontolMemek', [settingController::class, 'updateAllowDays']);
+
     Route::get('/checkinDashboard', [DashboardController::class, 'checkinDashboard']);
     Route::get('/registrationDashboard', [DashboardController::class, 'registrationDashboard']);
 });
