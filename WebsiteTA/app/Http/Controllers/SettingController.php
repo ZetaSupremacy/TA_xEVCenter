@@ -20,52 +20,54 @@ class SettingController extends Controller
 
     public function updateAllowDays(Request $request)
     {
-        $request->allow_days = explode(", ", $request->allow_days);
+        $request->allow_days = str_replace(" ", "", $request->allow_days);
+        $request->allow_days = strtolower($request->allow_days);
+        
+        $request->allow_days = explode(",", $request->allow_days);
         $request->allow_days = array_unique($request->allow_days);
-
         allow_day::truncate();
         // dd($request->allow_days);
        foreach ($request->allow_days as $day) {
         switch ($day) {
-            case 'Senin':
+            case 'senin':
                 allow_day::create([
                     'allow_days' => '1'
                 ]);
                 break;
-            case 'Selasa':
+            case 'selasa':
                 allow_day::create([
                     'allow_days' => '2'
                 ]);
                 break;
-            case 'Rabu':
+            case 'rabu':
                 allow_day::create([
                     'allow_days' => '3'
                 ]);
                 break;
-            case 'Kamis':
+            case 'kamis':
                 allow_day::create([
                     'allow_days' => '4'
                 ]);
                 break;
-            case "Jum'at":
+            case "jum'at":
                 allow_day::create([
                     'allow_days' => '5'
                 ]);
                 break;
-            case 'Sabtu':
+            case 'sabtu':
                 allow_day::create([
                     'allow_days' => "6"
                 ]);
                 break;
-            case 'Minggu':
+            case 'minggu':
                 allow_day::create([
                     'allow_days' => "0"
                 ]);
                 break;
     }};       
 
-    return redirect('/setting')->with('success', 'Data kontol sudah berhasil di update'); 
-        // return view('admin.setting', compact('kuota', 'dateInterval'));
+    return redirect('/setting')->with('success', 'Data sudah berhasil di update'); 
+    
     }
 
 }

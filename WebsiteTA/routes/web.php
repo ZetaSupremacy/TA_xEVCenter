@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
         return view('admin.kuota');
     });
     Route::get('/setting', [settingController::class, 'index']);
-    Route::post('/kontolMemek', [settingController::class, 'updateAllowDays']);
+    Route::post('/allow_days', [settingController::class, 'updateAllowDays']);
 
     Route::get('/checkinDashboard', [DashboardController::class, 'checkinDashboard']);
     Route::get('/registrationDashboard', [DashboardController::class, 'registrationDashboard']);

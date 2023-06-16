@@ -34,7 +34,7 @@
               
             <div class="col-md-12">
                 <div class="card" style="background-color: #C3C3C3;">
-                    <form action='/kontolMemek' method='post'>
+                    <form action='/allow_days' method='post'>
                         @csrf
                     <div class="card-body mx-3 form-group">
                      <input wire:model.lazy="memek" type="text" id="skill" name="allow_days" class="form-control"/>
