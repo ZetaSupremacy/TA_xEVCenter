@@ -2,7 +2,7 @@
 
     @section('content')
         <div class="inner-content-tabbing-visitordetail my-3 py-3">
-            <div class="mx-3 mb-3">
+            <div class="mb-3">
                 
                 <div class="col-md-12">
                     <div class="card border-radius-8">

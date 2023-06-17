@@ -138,7 +138,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="institusi{{ $i }}" class="form-label text-semibold"><b>Institution Category</b></label>
                         <select name="intitution_category[]" class="form-select" id="institusi{{ $i }}" required="">
                             <option value="">Choose</option>
@@ -152,6 +152,15 @@
                             <option value="Key Opinion Leader"> Key Opinion Leader </option>
                             <option value="Public"> Public </option>
                         </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <div class="">
+                                <label for="Email" class="form-label text-semibold"><b>Email</b></label>
+                                    <input name="email" placeholder="email" required="required" type="email" class="form-control " id="Email">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
