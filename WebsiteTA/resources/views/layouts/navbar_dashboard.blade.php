@@ -95,7 +95,7 @@
                 border-radius: 0;
                 margin-bottom: 0;
                 background-color: #1076a1;
-                position: relative;
+                position: fixed;
 
                 justify-content: flex-end;
                 align-items: center;
@@ -127,8 +127,8 @@
 
             /* Dropdown Button */
             .dropbtn {
-                background-color: #04aa6d;
-                color: white;
+                background-color: ;
+                color: ;
                 padding: 16px;
                 font-size: 16px;
                 border: none;
@@ -148,10 +148,10 @@
                     z-index: 1000;
                     display: none;
                     float: left;
-                    min-width: 10rem;
+                    min-widht: 15rem;
+                    max-width: 100px;
                     padding: 0.5rem 0;
-                    margin: 0.125rem 0 0;
-                    font-size: 1rem;
+                    /* margin: 0.125rem 0 0; */
                     color: #373a3c;
                     text-align: left;
                     list-style: none;
@@ -168,9 +168,9 @@
             /* Links inside the dropdown */
             .dropdown-content a {
                 color: black;
-                padding: 12px 16px;
+                padding: 10px 14px;
                 text-decoration: none;
-                    font-size: small;
+                font-size: 12px;
                 display: block;
 
             }
@@ -186,9 +186,9 @@
             }
 
             /* Change the background color of the dropdown button when the dropdown content is shown */
-            .dropdown:hover .dropbtn {
+            /* .dropdown:hover .dropbtn {
                 background-color: #3e8e41;
-            }
+            } */
 
             h1 {
                 text-align: left;
@@ -321,7 +321,21 @@
                             class="profile-container"
                             style="display: flex; gap: 10px"
                         >
-                            <div class="drpbtn">
+                        <div class="dropdown">
+                            <div class="dropdown dropdown-toggle" type="button" data-toggle="dropdown">
+                                <img
+                                    src="https://drive.google.com/uc?export=view&id=1EUoNNoqYk2jeEuIfdN0msdil2_Kcs4fg"
+                                    alt=""
+                                    width="40"
+                                    height="40"
+                                />
+                            </div>
+                            <ul class="dropdown-content">
+                                <li><a href="#">View Site</a></li>
+                                <li><a href="#">Log Out</a></li>
+                            </ul>
+                        </div>
+                            <!-- <div class="drpbtn">
                                 <img
                                     src="https://drive.google.com/uc?export=view&id=1EUoNNoqYk2jeEuIfdN0msdil2_Kcs4fg"
                                     alt=""
@@ -349,7 +363,7 @@
                                     <a href="#">My Site</a>
                                     <a href="#">Log out</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </nav>

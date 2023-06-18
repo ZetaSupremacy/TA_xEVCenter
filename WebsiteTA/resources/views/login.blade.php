@@ -12,7 +12,7 @@
   <div class="row">
     <nav id="sidebarMenu" class="col-md-7 col-lg-7 d-md-block" style="min-height:100vh; background-color: #1076A1;">
       <div class="h-100 d-flex align-items-center justify-content-center">
-        <img alt="failed to upload" src="https://telkomuniversityofficial-my.sharepoint.com/personal/fabiov_student_telkomuniversity_ac_id/Documents/Tugas%20Akhir/Desain/IconOrLogo/Logo%20xEV%20Center%20White.png" width="45%" height="45%"/>
+        <img alt="failed to upload" src="https://drive.google.com/uc?export=view&id=1HN1WxsHtxIP0LUSI9_h35PiUGntddTlM" width="45%" height="45%"/>
       </div>
     </nav>
 
