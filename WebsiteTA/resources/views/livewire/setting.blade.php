@@ -11,7 +11,7 @@
                         border: 15px solid;
                         border-color: #c3c3c3;"
             >
-                <h3 style="font-weight: bold">System Information</h3>
+                <h3 style="font-weight: bold">&nbsp;System Information</h3>
 
                 <div
                     class="si-card-body1 d-flex align-items-center px-2"
@@ -122,7 +122,7 @@
             </div>
                 
             <div
-                class="card-body d-flex align-items-center mt-4"
+                class="card-body d-flex align-items-center mt-1"
                 style="
                     background-color: #ffffff;
                     border: 15px solid;
@@ -147,7 +147,7 @@
                 </button>
             </div>
             <div
-                class="card-body d-flex align-items-center mt-4"
+                class="card-body d-flex align-items-center mt-1"
                 style="
                     background-color: #ffffff;
                     border: 15px solid;
@@ -172,7 +172,7 @@
                 </button>
             </div>
             <div
-                class="card-body d-flex align-items-center mt-4"
+                class="card-body d-flex align-items-center mt-1"
                 style="
                     background-color: #ffffff;
                     border: 15px solid;
@@ -197,7 +197,7 @@
                 </button>
             </div>
             <div
-                class="card-body d-flex align-items-center mt-4 mb-4"
+                class="card-body d-flex align-items-center mt-1"
                 style="
                     background-color: #ffffff;
                     border: 15px solid;
@@ -227,7 +227,7 @@
                         border: 15px solid black;
                         border-color: #c3c3c3;"
             >
-                <h3 style="font-weight: bold">History Change</h3>
+                <h3 style="font-weight: bold">&nbsp;&nbsp;System History</h3>
                 <div class="hi-card-body2 d-flex align-items-center px-2">
                     <table
                         class="col-md-12 px-2 mt-2"

@@ -1,7 +1,7 @@
 @extends('layouts.navbar_dashboard')
 
     @section('content')
-        <div class="inner-content-tabbing-visitordetail my-3 py-3">
+        <div class="inner-content-tabbing-visitordetail my-3">
             <div class="mb-3">
                 
                 <div class="col-md-12">
