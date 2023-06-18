@@ -6,6 +6,7 @@
 </div>
 @endif
 
+apus buat pancingan push
     <div class="col-md-12 mt-3">
         <div class="card pb-3" style="background-color: #C3C3C3;">
 
