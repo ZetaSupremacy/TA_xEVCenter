@@ -29,6 +29,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: red;
                                 "
                             >
                                 S
@@ -38,6 +39,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: red;
                                 "
                             >
                                 M
@@ -47,6 +49,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: green;
                                 "
                             >
                                 T
@@ -56,6 +59,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: red;
                                 "
                             >
                                 W
@@ -65,6 +69,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: green;
                                 "
                             >
                                 T
@@ -74,6 +79,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: red;
                                 "
                             >
                                 F
@@ -83,6 +89,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
+                                    color: red;
                                 "
                             >
                                 S
