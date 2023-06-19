@@ -200,9 +200,34 @@
                         float: right;
                     "
                 >
+                Edit
+            </button>
+        </div>
+            <div
+                class="card-body d-flex align-items-center mt-1"
+                style="
+                    background-color: #ffffff;
+                    border: 15px solid;
+                    border-color: #c3c3c3;
+                "
+            >
+                <h4 style="font-weight: bold; flex: 1">Session</h4>
+                <button
+                    class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#session"
+                    id="submit-reservation"
+                    style="
+                        background-color: #fe8f50;
+                        color: white;
+                        font-weight: bold;
+                        float: right;
+                    "
+                >
                     Edit
                 </button>
-            </div>
+        </div>
             <div
                 class="card-body d-flex align-items-center mt-1"
                 style="
