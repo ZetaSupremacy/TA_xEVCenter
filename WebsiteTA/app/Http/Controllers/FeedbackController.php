@@ -26,7 +26,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        return view('pengunjung.feedback');
+        // return view('pengunjung.feedback');
     }
 
     /**
@@ -39,15 +39,12 @@ class FeedbackController extends Controller
     {
         // dd($request);
         $request->validate([
-            'email' =>'required',
-            'institution' =>'required',
-            'age' =>'required',
-            'tanggal' =>'required',
             'how_they_know' =>'required',
             
             'knowledge_before_xev' =>'required',
             'knowledge_after_xev' =>'required',
             'knowledge_increases' =>'required',
+            'knowledge_other' =>'',
             
             'content_opinion' =>'required',
             'reason_opinion' =>'required',
@@ -56,17 +53,15 @@ class FeedbackController extends Controller
             'xev_center_facility' =>'required',
             'reason_xev_center_facility' =>'required',
             'interested_to_buy' =>'required',
-            'car_series' =>'required',
-            'car_type' =>'required',
+
+            'car_series' => '',
+            'car_type' => '',
+
             'reason_xev_center_is_worth' =>'required',
             'testimoni' =>'required',
             'advice' =>'required',
         ]);
         $data = [
-            'email' => $request->email,
-            'institution' => $request->institution,
-            'age' => $request->age,
-            'tanggal' => $request->tanggal,
             'how_they_know' => $request->how_they_know,
             'how_they_know_other' => $request->how_they_know_other,
             'knowledge_before_xev' => $request->knowledge_before_xev,

@@ -21,14 +21,18 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="" class="nav-link px-4" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'" style="color: grey; text-decoration: underline; font-weight: bold;">Registration</a></li>
+            <li><a href="/pengunjung" class="nav-link px-4" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'" style="color: grey; text-decoration: underline; font-weight: bold;">Registration</a></li>
             @if(Auth::check())
-            <li><a href="" class="nav-link px-4" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'" style="color: grey; text-decoration: underline; font-weight: bold;">Check-In</a></li>
+            <li><a href="/validateCode" class="nav-link px-4" @if(!Auth::check()) onMouseOver="this.style.color='grey'" @endif  @if(Auth::check()) onMouseOut="this.style.color='grey'" @endif style="color: grey; text-decoration: underline; font-weight: bold;">Check-In</a></li>
             @endif
           </ul>
         @if(Auth::check())
         <div class="col-md-3 px-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Logout</button>
+          <form action="/logout" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Logout</button>
+        </form>
+            {{-- <button type="button" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Logout</button> --}}
         </div>
         @else
         <div class="col-md-3 px-3 text-end">

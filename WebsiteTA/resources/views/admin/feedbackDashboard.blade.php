@@ -1,14 +1,15 @@
 @extends('layouts.navbar_dashboard')
 
     @section('content')
-        
+
         <div class="inner-content-tabbing-visitordetail my-3 py-3">
             <div class="mx-3 mb-3">
                 
                 <div class="col-md-12">
-                    <div class="">
-                        <div class="card-body rounded-3" style="background-color: #dedede; ">
-                            <h1 style="font-weight: bold; font-size: 30px">Registration - Group</h1>
+                    <div class="card border-radius-8">
+                        <div class="card-body d-flex align-items-center" style="background-color: #C3C3C3;">
+                            <h5 style="font-weight: bold; flex: 1;">Feedback Visitor</h5>
+                            <button class="btn btn-primary flex-center px-4 mx-2 border-radius-8 btn-sm" type="submit" id="submit-reservation" style="background-color: #50BFFE; color: white; font-weight: bold; float: right;">Download</button>
                         </div>
                     </div>
                 </div>
@@ -20,29 +21,27 @@
                                 <thead>
                                     <tr>
                                         <th><input type="checkbox" id="checkAll"></th>
-                                        <th scope="col">Arrival Date</th>
-                                        <th scope="col">Group Name</th>
-                                        <th scope="col">Session</th>
-                                        <th scope="col">PIC Name</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Institution Name</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Total Arrival</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Testimony</th>
+                                        <th scope="col">Advice</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($reservasi_group as $reservasiGroup)
+                                    @foreach($feedbacks as $feedback)
                                     <tr>
                                         <td><input class="checkItem" type="checkbox"></td>
-                                        <td>{{ $reservasiGroup->tanggal }}</td>
-                                        <td>{{ $reservasiGroup->nama_group }}</td>
-                                        <td>{{ $reservasiGroup->reservation_session->session_name }}</td>
-                                        <td>{{ $reservasiGroup->pic_name }}</td>
-                                        <td>{{ $reservasiGroup->email }}</td>
-                                        <td>{{ $reservasiGroup->total_member }}</td>
-                                        <td><a href="/registrationDashboard/{{$reservasiGroup->encrypted_column}}" class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" id="submit-reservation" style="background-color: #00B934; color: white; font-weight: bold;">Detail</a></td>
-                                    </tr>
+                                        @php 
+                                        $date = substr($feedback->created_at, 0, 10);
+                                        @endphp
+                                        <th scope="row">{{ $date }}</th>
+                                        <td>test</td>
+                                        <td>test email</td>
+                                        <td>{{ $feedback->testimoni }}</td>
+                                        <td>{{ $feedback->advice }}</td>
+                                    </tr>                                    
                                     @endforeach
-                                
                                     </tbody>
                                 </table>
                                 <div class="col-md-12">
@@ -56,5 +55,5 @@
                 </div>
             </div>
         </div>
-
+            
 @endsection

@@ -8,10 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class feedback extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+    // public $timestamps = false;
     protected $table = 'feedback';
       
     protected $guarded = [
         'id'
     ];   
+    
+    public function pengunjung() {
+        return $this->belongsTo(pengunjung::class);
+    }
+
 }

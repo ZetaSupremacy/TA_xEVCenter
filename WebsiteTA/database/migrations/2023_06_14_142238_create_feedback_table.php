@@ -15,12 +15,8 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('institution');
-            $table->integer('age');
-            $table->string('tanggal');
+            $table->integer('pengunjung_id');
             $table->string('how_they_know');
-            $table->string('how_they_know_other')->nullable();
             $table->string('knowledge_before_xev');
             $table->string('knowledge_after_xev');
             $table->string('knowledge_increases');
@@ -32,8 +28,8 @@ return new class extends Migration
             $table->string('xev_center_facility');
             $table->string('reason_xev_center_facility');
             $table->string('interested_to_buy');
-            $table->string('car_series');
-            $table->string('car_type');
+            $table->string('car_series')->nullable();
+            $table->string('car_type')->nullable();
             $table->string('reason_xev_center_is_worth');
             $table->string('testimoni');
             $table->string('advice');

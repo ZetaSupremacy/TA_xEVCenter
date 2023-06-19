@@ -21,10 +21,12 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><a href="" class="nav-link px-2" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'" style="color: grey; text-decoration: underline;">Registration</a></li>
       </ul>
-
+      
+{{-- <form action="/login" method="get"> --}}
       <div class="col-md-3 px-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Login</button>
+          <a href="/login" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Login</a>
       </div>
+{{-- </form> --}}
       </header>
   </div>
 

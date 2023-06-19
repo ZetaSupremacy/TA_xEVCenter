@@ -59,8 +59,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/validateCode', [UserController::class, 'validateCode']);
     Route::post('/ConfirmationCode', [UserController::class, 'ConfirmationCode']);
+    Route::post('/logout', [UserController::class])->name('logout');
     
     //dashboard
+    Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');
     Route::get('/allowdate', function () {
         return view('admin.allowDate');
     });
@@ -69,9 +71,11 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/setting', [settingController::class, 'index']);
     Route::post('/allow_days', [settingController::class, 'updateAllowDays']);
-
+    
     Route::get('/checkinDashboard', [DashboardController::class, 'checkinDashboard']);
     Route::get('/registrationDashboard', [DashboardController::class, 'registrationDashboard']);
+    Route::get('/registrationDashboard/{encrypt}', [DashboardController::class, 'registrationDashboardDetail']);
+    Route::get('/feedbackDashboard', [DashboardController::class, 'feedbackDashboard']);
 });
 //----------------------------------
 

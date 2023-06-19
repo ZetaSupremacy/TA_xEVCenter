@@ -23,7 +23,7 @@
 
                             <div class="form-section current">
 
-                                <div class="box-feedback mb-3 mt-5 py-5">
+                                {{-- <div class="box-feedback mb-3 mt-5 py-5">
                                     <h2 class="mx-5 mb-4 d-block">Data Visitor</h2>
 
                                     <div class="card border-radius-8 p-5">
@@ -61,8 +61,8 @@
                                                 </div>
                                             </div>
                                         </div>   
-                                    </div>
-    
+                                    </div> --}}
+{{--     
                                     <h2 class="mx-5 mb-4 d-block mt-4">Waktu Kunjungan</h2>
     
                                     <div class="card border-radius-8 p-5 mb-5">                           
@@ -83,9 +83,9 @@
                                                 </div>                           
                                             </div>                           
                                         </div>                           
-                                    </div>
+                                    </div> --}}
     
-                                    <hr>
+                                    {{-- <hr> --}}
                             
                                     <div class="card border-radius-8 p-5 mb-4 mt-5">
                             
@@ -107,7 +107,7 @@
                             
                                                         <div class="form-check mb-3">
                             
-                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="internal" data-parsley-multiple="how-they-know" data-parsley-errors-container="#how-they-know-container" value="1" required="" data-parsley-group="block-0">
+                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="internal" data-parsley-multiple="how-they-know" data-parsley-errors-container="#how-they-know-container" value="Internal Toyota info" required="" data-parsley-group="block-0">
                             
                                                             <label class="form-check-label" for="internal">
                             
@@ -121,7 +121,7 @@
                             
                                                         <div class="form-check mb-3">
                             
-                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="instagram" data-parsley-multiple="how-they-know" value="2" required="" data-parsley-group="block-0">
+                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="instagram" data-parsley-multiple="how-they-know" value="Instagram" required="" data-parsley-group="block-0">
                             
                                                             <label class="form-check-label" for="instagram">
                             
@@ -133,7 +133,7 @@
                             
                                                         <div class="form-check mb-3">
                             
-                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="news" data-parsley-multiple="how-they-know" data-parsley-errors-container="#how-they-know-container" value="3" required="" data-parsley-group="block-0">
+                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="news" data-parsley-multiple="how-they-know" data-parsley-errors-container="#how-they-know-container" value="News" required="" data-parsley-group="block-0">
                             
                                                             <label class="form-check-label" for="news">
                             
@@ -147,7 +147,7 @@
                             
                                                         <div class="form-check mb-3">
                             
-                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="linkedin" data-parsley-multiple="how-they-know" value="4" required="" data-parsley-group="block-0">
+                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="linkedin" data-parsley-multiple="how-they-know" value="Linkedin" required="" data-parsley-group="block-0">
                             
                                                             <label class="form-check-label" for="linkedin">
                             
@@ -159,7 +159,7 @@
                             
                                                         <div class="form-check mb-3">
                             
-                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="youtube" data-parsley-multiple="how-they-know" data-parsley-errors-container="#how-they-know-container" value="5" required="" data-parsley-group="block-0">
+                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="youtube" data-parsley-multiple="how-they-know" data-parsley-errors-container="#how-they-know-container" value="Youtube" required="" data-parsley-group="block-0">
                             
                                                             <label class="form-check-label" for="youtube">
                             
@@ -173,7 +173,7 @@
                             
                                                         <div class="form-check mb-3">
                             
-                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="friend" data-parsley-multiple="how-they-know" value="6" required="" data-parsley-group="block-0">
+                                                            <input class="form-check-input global-trigger-how-they-know" type="radio" name="how_they_know" id="friend" data-parsley-multiple="how-they-know" value="Friend/Family" required="" data-parsley-group="block-0">
                             
                                                             <label class="form-check-label" for="friend">
                             
@@ -189,7 +189,7 @@
                             
                                                             <div class="form-check">
                             
-                                                                <input class="form-check-input" data-parsley-multiple="how-they-know" type="radio" name="how_they_know" value="7" id="radio-other" required="" data-parsley-group="block-0">
+                                                                <input class="form-check-input" data-parsley-multiple="how-they-know" type="radio" name="how_they_know" value="" id="radio-other" required="" data-parsley-group="block-0">
                             
                                                                 <label class="form-check-label" for="other-how-they">
                             
@@ -367,7 +367,7 @@
                             
                                                                     <div class="form-check">
                             
-                                                                        <input class="form-check-input" type="checkbox" data-parsley-errors-container="#knowledge-container" data-parsley-multiple="knowledge-xev" name="knowledge_increases[]" required="" value="xEv Ecosystem" id="xEv-Ecosystem" data-parsley-group="block-0">
+                                                                        <input class="form-check-input" type="checkbox" data-parsley-errors-container="#knowledge-container" data-parsley-multiple="knowledge-xev" name="knowledge_increases[]" value="xEv Ecosystem" id="xEv-Ecosystem" data-parsley-group="block-0">
                             
                                                                         <label class="form-check-label" for="xEv-Ecosystem">
                             
@@ -383,7 +383,7 @@
                             
                                                                     <div class="form-check">
                             
-                                                                        <input class="form-check-input" data-parsley-multiple="knowledge-xev" type="checkbox" name="knowledge_increases[]" required="" value="Differences of xEV technologies" id="xev-technologies" data-parsley-group="block-0">
+                                                                        <input class="form-check-input" data-parsley-multiple="knowledge-xev" type="checkbox" name="knowledge_increases[]" value="Differences of xEV technologies" id="xev-technologies" data-parsley-group="block-0">
                             
                                                                         <label class="form-check-label" for="xev-technologies">
                             
@@ -399,7 +399,7 @@
                             
                                                                     <div class="form-check">
                             
-                                                                        <input class="form-check-input" data-parsley-multiple="knowledge-xev" type="checkbox" name="knowledge_increases[]" required="" value="Multi pathway approaches" id="pathway-approaches" data-parsley-group="block-0">
+                                                                        <input class="form-check-input" data-parsley-multiple="knowledge-xev" type="checkbox" name="knowledge_increases[]" value="Multi pathway approaches" id="pathway-approaches" data-parsley-group="block-0">
                             
                                                                         <label class="form-check-label" for="pathway-approaches">
                             
@@ -415,7 +415,7 @@
                             
                                                                     <div class="form-check">
                             
-                                                                        <input class="form-check-input" data-parsley-multiple="knowledge-xev" type="checkbox" name="knowledge_increases[]" value="4" id="other-checkbox" data-parsley-group="block-0">
+                                                                        <input class="form-check-input" data-parsley-multiple="knowledge-xev" type="checkbox" id="other-checkbox" data-parsley-group="block-0">
                             
                                                                         <label class="form-check-label" for="other-pengetahuan">
                             
@@ -423,7 +423,7 @@
                             
                                                                         </label>
                             
-                                                                        <input type="text" name="increases_other" data-parsley-pattern="[a-zA-Z0-9\.\,\s]*" class="other-pengetahuan" disabled="" data-parsley-group="block-0" id="input-other-checkbox">
+                                                                        <input type="text" name="knowledge_other" data-parsley-pattern="[a-zA-Z0-9\.\,\s]*" class="other-pengetahuan" disabled="" data-parsley-group="block-0" id="input-other-checkbox">
                             
                                                                     </div>
                             

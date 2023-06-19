@@ -20,11 +20,17 @@ class UserController extends Controller
         
         if(Auth::attempt($credentials )) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/validateCode');
         }
 
         return back()->with('loginerror', 'login Gagal');
 
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        
+        return redirect()->intended('/pengunjung');
     }
 
     public function validateCode() {

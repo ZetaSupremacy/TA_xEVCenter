@@ -77,6 +77,7 @@
                                     <th scope="col">Age</th>
                                     <th scope="col">Job_Title</th>
                                     <th scope="col">Institution</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +88,7 @@
                                     <td>{{ $member->pengunjung->age }}</td>
                                     <td>{{ $member->pengunjung->job_title }}</td>
                                     <td>{{ $member->pengunjung->intitution_category }}</td>
-                                    
+                                    <td>@if($member->pengunjung->group_member[0]->Kehadiran) Hadir @else Tidak Hadir @endif</td> 
                                 </tr>
                                 @endforeach
                             
