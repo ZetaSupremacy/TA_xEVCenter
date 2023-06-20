@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/validateCode', [UserController::class, 'validateCode']);
     Route::post('/ConfirmationCode', [UserController::class, 'ConfirmationCode']);
-    Route::post('/logout', [UserController::class])->name('logout');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     
     //dashboard
     Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');
@@ -70,17 +70,26 @@ Route::middleware('auth')->group(function () {
         return view('admin.kuota');
     });
     Route::get('/setting', [settingController::class, 'index']);
+    Route::get('/setting/reservationSession', [settingController::class, 'reservationSession']);
+    Route::get('/setting/reservationSession/create', [settingController::class, 'reservationSessionCreate']);
+    Route::get('/setting/reservationSession/{id}', [settingController::class, 'reservationSessionEdit']);
+    Route::post('/setting/reservationSession/createNew', [settingController::class, 'reservationSessionStore']);
+    Route::post('/setting/reservationSession/update', [settingController::class, 'reservationSessionUpdate']);
     Route::post('/allow_days', [settingController::class, 'updateAllowDays']);
     
     Route::get('/checkinDashboard', [DashboardController::class, 'checkinDashboard']);
     Route::get('/registrationDashboard', [DashboardController::class, 'registrationDashboard']);
     Route::get('/registrationDashboard/{encrypt}', [DashboardController::class, 'registrationDashboardDetail']);
     Route::get('/feedbackDashboard', [DashboardController::class, 'feedbackDashboard']);
+    Route::get('/download/feedback', [DashboardController::class, 'downloadFeedback']);
 });
+
+Route::get('/feedbackPengunjung/{cryptID}', [FeedbackController::class, 'index']);
+Route::post('/feedbackPengunjung/store', [FeedbackController::class, 'store']);
 //----------------------------------
 
 //feedback
-Route::resource('feedback', FeedbackController::class);
+// Route::resource('feedback', FeedbackController::class);
 
 //----------------------------------
 require __DIR__.'/auth.php';

@@ -2,18 +2,22 @@
 
     @section('content')
 
+    @if (session()->has('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
         <div class="inner-content-tabbing-visitordetail my-3 py-3">
             <div class="mx-3 mb-3">
                 
                 <div class="col-md-12">
                     <div class="card border-radius-8">
-                        <div class="card-body d-flex align-items-center" style="background-color: #C3C3C3;">
-                            <h5 style="font-weight: bold; flex: 1;">Feedback Visitor</h5>
-                            <a class="btn btn-primary flex-center px-4 mx-2 border-radius-8 btn-sm" href="/download/feedback" id="submit-reservation" style="background-color: #50BFFE; color: white; font-weight: bold; float: right;">Download</a>
+                        <div class="card-body d-flex" style="background-color: #C3C3C3;">
+                            <h1 style="font-weight: bold; flex: 1;">Reservation Session</h1>
+                            
                         </div>
                     </div>
                 </div>
-
+                <a href="/setting/reservationSession/create" class="btn btn-primary mx-2 my-2" style="float: right; background-color: #04BD00; color: white;"><i class="fa-solid fa-plus fa-lg px-2"></i>New</a>
                 <div class="box-reservation-xev my-3 py-5">
                     <div class="card border-radius-8">
                         <div class="card-body">
@@ -21,26 +25,21 @@
                                 <thead>
                                     <tr>
                                         <th><input type="checkbox" id="checkAll"></th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Institution Category</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Testimony</th>
-                                        <th scope="col">Advice</th>
+                                        <th scope="col">Session Name</th>
+                                        <th scope="col">Start Time</th>
+                                        <th scope="col">End Time</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($feedbacks as $feedback)
+                                    @foreach($reservationSession as $reservasi)
                                     <tr>
                                         <td><input class="checkItem" type="checkbox"></td>
-                                        @php 
-                                        $date = substr($feedback->created_at, 0, 10);
-                                        @endphp
-                                        <th scope="row">{{ $date }}</th>
-                                        <td>{{ $feedback->pengunjung->intitution_category }}</td>
-                                        <td>{{ $feedback->pengunjung->email }}</td>
-                                        <td>{{ $feedback->testimoni }}</td>
-                                        <td>{{ $feedback->advice }}</td>
-                                    </tr>                                    
+                                        <td>{{ $reservasi->session_name }}</td>
+                                        <td>{{ $reservasi->start_time }}</td>
+                                        <td>{{ $reservasi->end_time }}</td>
+                                        <td><a class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" href="/setting/reservationSession/{{ $reservasi->id }}" id="submit-reservation" style="background-color: #FE8F50; color: white; font-weight: bold;">Edit</a></td>
+                                    </tr>
                                     @endforeach
                                     </tbody>
                                 </table>

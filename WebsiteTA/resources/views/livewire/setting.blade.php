@@ -23,13 +23,14 @@
                         class="px-3 mt-2"
                         style="float: right; border-left: 1px solid black"
                     >
+
                         <tr>
                             <th
                                 style="
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: red;
+                                    color: @if(in_array("Minggu", $days)) green; @else red; @endif
                                 "
                             >
                                 S
@@ -39,7 +40,7 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: red;
+                                    color: @if(in_array("Senin", $days)) green; @else red; @endif
                                 "
                             >
                                 M
@@ -49,7 +50,8 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: green;
+                                    
+                                    color: @if(in_array("Selasa", $days)) green; @else red; @endif
                                 "
                             >
                                 T
@@ -59,7 +61,8 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: red;
+                                    
+                                    color: @if(in_array("Rabu", $days)) green; @else red; @endif
                                 "
                             >
                                 W
@@ -69,7 +72,8 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: green;
+                                    
+                                    color: @if(in_array("Kamis", $days)) green; @else red; @endif
                                 "
                             >
                                 T
@@ -79,7 +83,8 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: red;
+                                    
+                                    color: @if(in_array("Jum'at", $days)) green; @else red; @endif
                                 "
                             >
                                 F
@@ -89,7 +94,8 @@
                                     border-left: 1px solid black;
                                     padding-left: 15px;
                                     padding-right: 15px;
-                                    color: red;
+                                    
+                                    color: @if(in_array("Sabtu", $days)) green; @else red; @endif
                                 "
                             >
                                 S
@@ -104,7 +110,7 @@
                             margin: 10px"
                 >
                     <h5 style="flex: 1">Date Interval</h5>
-                    <h5 style="float: right">10</h5>
+                    <h5 style="float: right">{{ $dateInterval }}</h5>
                 </div>
 
                 <div
@@ -113,7 +119,7 @@
                             margin: 10px"
                 >
                     <h5 style="flex: 1">Quota / Session</h5>
-                    <h5 style="float: right">20</h5>
+                    <h5 style="float: right">{{ $kuota }}</h5>
                 </div>
 
                 <!-- <div
@@ -212,11 +218,9 @@
                 "
             >
                 <h4 style="font-weight: bold; flex: 1">Session</h4>
-                <button
+                <a
                     class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#session"
+                    href="/setting/reservationSession"
                     id="submit-reservation"
                     style="
                         background-color: #fe8f50;
@@ -226,7 +230,7 @@
                     "
                 >
                     Edit
-                </button>
+                </a>
         </div>
             <div
                 class="card-body d-flex align-items-center mt-1"
@@ -240,8 +244,6 @@
                 <button
                     class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
                     type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#kuota"
                     id="submit-reservation"
                     style="
                         background-color: #fe8f50;
@@ -309,7 +311,7 @@
                                 @csrf
                                 <div class="card-body mx-3 form-group">
                                     <input
-                                        wire:model.lazy="memek"
+                                        wire:model.lazy="allow_days"
                                         type="text"
                                         id="skill"
                                         name="allow_days"

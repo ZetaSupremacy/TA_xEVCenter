@@ -5,6 +5,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK9 4CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         {{-- <script type="text/javascript" src="instascan.min.js"></script> --}}
     @livewireStyles
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -15,6 +17,51 @@
         
         
         <style>
+            
+            .widget {
+                background-color: #ffffff;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-right: 50px;
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+            .widget p {
+                padding-left: 20px;
+                color: #1076a1;
+                font-weight: bolder;
+                font-size: 59px;
+                margin: 0;
+                text-align: left;
+            }
+
+            .widget .widget-title {
+                padding-left: 20px;
+                font-size: 20px;
+                font-weight: bolder;
+                text-align: center;
+            }
+
+            /* .card {
+                width: 400px;
+                height: 225px;
+                display: block;
+                justify-content: center;
+                background-color: #ffffff;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                margin: 0 auto;
+            } */
+
+            .percentage-global {
+                position: relative;
+                font-size: 16px;
+            }
+
             ul.ui-autocomplete.ui-menu {
                 z-index: 9999;
             }
@@ -270,7 +317,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="#"
+                        <a href="/dashboard"
                             ><img
                                 src="https://drive.google.com/uc?export=view&id=1zrmuCroVPET0GUZ-d7mAO0HOAqYe3UMz"
                                 alt=""
@@ -279,7 +326,7 @@
                     </li>
                     <li><hr /></li>
                     <li>
-                        <a href="#"
+                        <a href="/registrationDashboard"
                             ><img
                                 src="https://drive.google.com/uc?export=view&id=1DKGqkvcJYwyaI0OtrBqoA3t4bDQUVkFj"
                                 alt=""
@@ -288,7 +335,7 @@
                     </li>
                     <li><hr /></li>
                     <li>
-                        <a href="#"
+                        <a href="/checkinDashboard"
                             ><img
                                 src="https://drive.google.com/uc?export=view&id=1_5EWea_avVnmFOpZp0-9QX_kp_RRG5LT"
                                 alt=""
@@ -297,7 +344,7 @@
                     </li>
                     <li><hr /></li>
                     <li>
-                        <a href="#"
+                        <a href="/feedbackDashboard"
                             ><img
                                 src="https://drive.google.com/uc?export=view&id=14NxswrSCE-9fBJ8pXp87Ar53v3KGQ3NL"
                                 alt=""
@@ -306,7 +353,7 @@
                     </li>
                     <li><hr /></li>
                     <li>
-                        <a href="#"
+                        <a href="/setting"
                             ><img
                                 src="https://drive.google.com/uc?export=view&id=1JaP9KAlNaYqGqzF0BTAw19jq3q7_IUPp"
                                 alt=""
@@ -333,8 +380,8 @@
                                 />
                             </div>
                             <ul class="dropdown-content">
-                                <li><a href="#">View Site</a></li>
-                                <li><a href="#">Log Out</a></li>
+                                <li><a href="/pengunjung">View Site</a></li>
+                                <li><a href="/logout">Log Out</a></li>
                             </ul>
                         </div>
                             <!-- <div class="drpbtn">

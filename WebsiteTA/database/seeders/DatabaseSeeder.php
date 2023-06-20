@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\reservation_session;
+use App\Models\setting;
+use App\Models\allow_day;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +19,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
     
+    allow_day::create([
+        'allow_days' => 2,
+    ]);
+
+    allow_day::create([
+        'allow_days' => 4,
+    ]);
+
+    setting::create([
+        'kuota' => 20,
+        'date_interval' => 10,
+    ]);
+
     reservation_session::create([
         'session_name' => 'sesi 1',
         'start_time' => '09:00',

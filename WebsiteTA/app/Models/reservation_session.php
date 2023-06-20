@@ -9,6 +9,9 @@ class reservation_session extends Model
 {
     public $timestamps = false;
 
+    protected $guarded = [
+        'id'
+    ];    
 
     use HasFactory;
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('pengunjung_id')->nullable();
             $table->integer('reservasi_id');
             $table->boolean('Kehadiran')->default(false);
+            $table->boolean('feedback')->default(false);
         });
     }
 

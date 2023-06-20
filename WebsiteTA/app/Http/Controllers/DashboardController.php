@@ -9,6 +9,8 @@ use App\Models\group_member;
 use App\Models\feedback;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Decrypt;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\feedbackExport;
 
 class DashboardController extends Controller
 {
@@ -46,6 +48,7 @@ class DashboardController extends Controller
         $feedbacks = feedback::all();
         return view('admin.feedbackDashboard', compact('feedbacks'));
     }
+  
     
     public function Dashboard()
     {
@@ -142,7 +145,7 @@ class DashboardController extends Controller
                                                 ->where('intitution_category', 'Public')->count();
 
         $Chart->visitorArival = group_member::where('kehadiran', 1)->count();
-        $Chart->waitingList = reservation_group::whereNotNull('group_code')->count();
+        $Chart->waitingList = reservation_group::whereNotNull('group_code')->whereNotNull('email_verified_at')->count();
         $Chart->feedback = feedback::count();
         
         $Chart->howTheyKnow_LinkedIn = feedback::where('how_they_know', 'Linkedin')->count();
@@ -185,5 +188,10 @@ class DashboardController extends Controller
         return view('admin.mainDashboard', compact('Chart'));
     }
    
+    public function downloadFeedback()
+    {
+        $feedbacks = feedback::all();
+        return Excel::download(new feedbackExport($feedbacks), 'feedbacks.xlsx');
+    }
 
 }

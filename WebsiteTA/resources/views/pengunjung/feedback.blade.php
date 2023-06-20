@@ -11,6 +11,7 @@
 </head>
   </head>
   <body>
+    
     <div class="container my-5">
         <div class="row">
 
@@ -18,9 +19,9 @@
 
                 <div class="form-feedback-xev my-3 py-3">
 
-                    <form action='{{ url('feedback')}}' id="form-feedback-xev" method='post'>
+                    <form action='/feedbackPengunjung/store' id="form-feedback-xev" method='post'>
                         @csrf
-
+                        <input type="hidden" name="id" value={{ $id }}>
                             <div class="form-section current">
 
                                 {{-- <div class="box-feedback mb-3 mt-5 py-5">

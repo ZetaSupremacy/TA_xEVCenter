@@ -1,98 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>visitor_detail_user</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
+@extends('layouts.navbar_dashboard')
 
-            h1 {
-                text-align: left;
-                font-size: 64px;
-                font-weight: 1000;
-                padding-left: 20px;
-                text-decoration: underline;
-                margin-bottom: 20px;
-            }
+    @section('content')
 
-            .widget {
-                background-color: #ffffff;
-                border-radius: 5px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                padding-top: 10px;
-                padding-bottom: 10px;
-                padding-right: 50px;
-                display: inline-block;
-                margin-right: 20px;
-            }
-
-            .widget p {
-                padding-left: 20px;
-                color: #1076a1;
-                font-weight: bolder;
-                font-size: 59px;
-                margin: 0;
-                text-align: left;
-            }
-
-            .widget .widget-title {
-                padding-left: 20px;
-                font-size: 20px;
-                font-weight: bolder;
-                text-align: center;
-            }
-
-            /* .barchart .age {
-            display: block;
-            justify-content: center;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            margin-right: 20px;
-            margin-top: 20px;
-            height: 333px;
-            width: 350px;
-        } */
-
-            .card {
-                width: 400px;
-                height: 225px;
-                display: block;
-                justify-content: center;
-                background-color: #ffffff;
-                border-radius: 5px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                display: inline-block;
-                margin: 0 auto;
-            }
-
-            .percentage-global {
-                position: relative;
-                font-size: 16px;
-            }
-        </style>
-    </head>
-    <body>
         <h1>Data Visitor</h1>
         <div class="b">
             <div class="widget">
@@ -566,5 +475,4 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"
         ></script>
-    </body>
-</html>
+@endsection

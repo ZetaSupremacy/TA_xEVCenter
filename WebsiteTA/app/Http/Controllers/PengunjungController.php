@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Mail;
+use App\Mail\sendFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\pengunjung;
@@ -13,6 +15,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Schema;
+use App\Jobs\sendFeedbackJob;
 
 
 class PengunjungController extends Controller
@@ -63,7 +66,7 @@ class PengunjungController extends Controller
             'tanggal.required'=>'Tanggal Wajib Diisi!',
             'alamat.required'=>'Alamat Wajib Diisi!',
             'no_telp.required'=>'Nomor Telepon Wajib Dipilih!',
-            'email.required'=>'Email Wajib Dipilih!',
+            'email.required'=>'Email Wajib Di isi!',
             'email.email'=>'pastikan email anda sudah benar',
         ];
 
@@ -72,6 +75,7 @@ class PengunjungController extends Controller
             'gender' => 'required',
             'age' => 'required|numeric|min:18',
             'job_title' => 'required',
+            'emailPengunjung' => 'required|email:dns',
             'intitution_category' => 'required',
         ];
 
@@ -82,6 +86,8 @@ class PengunjungController extends Controller
             'age.min'=>'Wajib berumur 18',
             'job_title.required'=>'Pekerjaan Wajib Diisi!',
             'intitution_category.required'=>'Institusi Wajib Diisi!',
+            'emailPengunjung.required'=>'Email Wajib Di Isi!',
+            'emailPengunjung.email'=>'pastikan email anda sudah benar',
         ];
         $validatedGroup = $request->validate($rulesGroup,$validateGroupMasages);
         
@@ -107,6 +113,7 @@ class PengunjungController extends Controller
             $pengunjung = new pengunjung;
             $group_member = new group_member;
             $pengunjung->visitor_name = $request['visitor_name'][$i];
+            $pengunjung->email = $request['emailPengunjung'][$i];
             $pengunjung->gender = $request['gender'][$i];
             $pengunjung->age = $request['age'][$i];
             $pengunjung->job_title = $request['job_title'][$i];
@@ -188,22 +195,35 @@ class PengunjungController extends Controller
             return redirect('/validateCode')->with('message', 'Data Tidak Valid'); 
         }
 
-        // if(now()->format("m/d/Y") != $request['tanggal']) {
-        //     return redirect('/validateCode')->with('message', 'Tanggal tidak valid'); 
-        // }
+        if(now()->format("m/d/Y") != $request['tanggal']) {
+            return redirect('/validateCode')->with('message', 'Tanggal tidak valid'); 
+        }
 
         $count = count($request['member']);
         
         for ($i = 0 ; $i < $count ; $i++ ) {
+            
             group_member::where('id', $request['member'][$i])->update([
                 'Kehadiran' => true,
             ]);
+
+            $member = group_member::where('id', $request['member'][$i])->first();
+            $pengunjung = pengunjung::where('id', $member->pengunjung_id)->first();
+            
+            $mail = [
+            'cryptID' => Crypt::encryptString($pengunjung->id),
+            'email' => $pengunjung->email,
+            ];
+
+            dispatch(new sendFeedbackJob($mail));
         }
 
         reservation_group::where('id', $request['groupid'])->update([
             'group_code' => null,
             'attend_confirmation_at' => now(),
         ]);
+
+        
 
         return redirect('/validateCode')->with('message', 'Data sudah berhasil di tambahkan'); 
         }

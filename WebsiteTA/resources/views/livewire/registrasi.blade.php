@@ -157,14 +157,14 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <div class="">
-                                <label for="Email" class="form-label text-semibold"><b>Email</b></label>
-                                    <input name="email" placeholder="email" required="required" type="email" class="form-control " id="Email">
+                                <label for="emailPengunjung{{ $i }}" class="form-label text-semibold"><b>Email</b></label>
+                                    <input name="emailPengunjung[]" placeholder="email" required="required" type="email" class="form-control " id="emailPengunjung{{ $i }}">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+</div>
         @endfor                        
 @if($pengunjung < $kuota)
         <div class="flex-between w-100 mb-4 mt-3 add-visitor-xev">

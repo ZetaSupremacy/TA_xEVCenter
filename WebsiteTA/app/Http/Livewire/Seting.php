@@ -9,7 +9,6 @@ use App\Models\allow_day;
 class Seting extends Component
 {
     public $dateInterval, $kuota, $allow_days, $days;
-    public $memek;
 
     
 
@@ -43,7 +42,8 @@ class Seting extends Component
         // Tambahkan case untuk nilai lainnya jika diperlukan
     }
 }
-    $this->memek = implode(',', $daysArray);
+    $this->days = $daysArray;
+    $this->allow_days = implode(',', $daysArray);
     
         return view('livewire.setting');
     }
@@ -72,7 +72,7 @@ class Seting extends Component
 
     public function updateAllowDays()
     {
-        dd($this->memek);
+        dd($this->allow_days);
         $this->allow_days = allow_day::pluck('allow_days');
         
         setting::where('id', '1')->update([

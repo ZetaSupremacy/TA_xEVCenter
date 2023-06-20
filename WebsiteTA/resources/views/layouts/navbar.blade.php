@@ -19,12 +19,17 @@
       </div>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="" class="nav-link px-2" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'" style="color: grey; text-decoration: underline;">Registration</a></li>
-      </ul>
+          <li><a href="" class="nav-link px-2" onMouseOver="this.style.color='grey'" style="color: grey; text-decoration: underline;">Registration</a></li>
+          @if(Auth::check())<li><a href="/validateCode" class="nav-link px-4" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'" style="color: white; text-decoration: underline; font-weight: bold;">Check-In</a></li>@endif
+        </ul>
       
 {{-- <form action="/login" method="get"> --}}
       <div class="col-md-3 px-3 text-end">
-          <a href="/login" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Login</a>
+        @if(Auth::check())
+        <a href="/logout" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">logout</a>
+        @else
+        <a href="/login" class="btn btn-outline-primary me-2 bg-white" style="color: black; border-color: black;">Login</a>
+        @endif
       </div>
 {{-- </form> --}}
       </header>

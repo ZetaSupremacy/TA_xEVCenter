@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\feedback;
+use App\Models\pengunjung;
+use App\Models\group_member;
+use Illuminate\Support\Facades\Crypt;
 
 class FeedbackController extends Controller
 {
@@ -14,9 +17,20 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($cryptID)
     {
-        return view('pengunjung.feedback');
+
+        $id = Crypt::decryptString($cryptID);
+
+        $pengunjung = group_member::where('pengunjung_id', $id)->first();
+
+        if ($pengunjung->feedback == null) {
+
+            return view('pengunjung.feedback', compact('id'));
+        }
+
+        return redirect()->to('/pengunjung')->with('success', 'Maaf anda sudah mengisi feedback sebelumnya');
+
     }
 
     /**
@@ -39,6 +53,7 @@ class FeedbackController extends Controller
     {
         // dd($request);
         $request->validate([
+            'id' => 'required',
             'how_they_know' =>'required',
             
             'knowledge_before_xev' =>'required',
@@ -62,6 +77,7 @@ class FeedbackController extends Controller
             'advice' =>'required',
         ]);
         $data = [
+            'pengunjung_id' => $request->id,
             'how_they_know' => $request->how_they_know,
             'how_they_know_other' => $request->how_they_know_other,
             'knowledge_before_xev' => $request->knowledge_before_xev,
@@ -84,7 +100,12 @@ class FeedbackController extends Controller
         $data['knowledge_increases'] = implode(' , ', $data['knowledge_increases']);
 
         feedback::create($data);
-        return redirect()->to('feedback')->with('success', 'Terimakasih Sudah Mengisi Feedback! :)');
+
+        group_member::where('pengunjung_id', $data['pengunjung_id'])->update([
+            'feedback' => 1,
+        ]);
+
+        return redirect()->to('/pengunjung')->with('success', 'Terimakasih Sudah Mengisi Feedback! :)');
     }
 
     /**
