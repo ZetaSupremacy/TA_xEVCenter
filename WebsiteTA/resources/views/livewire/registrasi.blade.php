@@ -1,5 +1,4 @@
 <div>
-
     <form action='{{ url('pengunjung')}}' method='post'>
         @csrf
         <div class="box-reservation-xev my-3 py-5">
@@ -81,7 +80,8 @@
                             </div>
                             <select @if(!$kuotaDisabled)wire:model="pengunjung"@endif class="form-select total-visitor" name="total_visitor" id="total-visitor"@if($kuotaDisabled) disabled @endif required>
                                 <option value="" readonly="" selected>Number Of Visitor</option>
-                                @for($i=1; $i <= $kuota; $i++)
+                                
+                                @for($i=1; $i < $kuota+1 ; $i++)   
                                 <option value={{ $i }} readonly="">{{ $i }}</option>
                                 @endfor
                             </select>
@@ -96,6 +96,7 @@
 <div class="visitor-list my-3 py-5" id="dynamic-visitor-list">
     <h2 class="mx-5 mb-4 d-block">Visitor List</h2> 
     <div class="visitor-list-default">
+        
         @for($i=0; $i < $pengunjung ; $i++)   
         <div class="card p-5 border-radius-8 mx-4 mb-3">
             <div class="card-body">
@@ -212,19 +213,24 @@
 
     <script>
         document.addEventListener('livewire:load', () => {
-            // console.log(@this.allow_days);
+            console.log(@this.allow_days);
             $( function() {
                 var disabledDays = @this.allow_days;
                 console.log(disabledDays)
                 var today = new Date();
                 var startDate = new Date();
                 startDate.setDate(today.getDate() + @this.dateInterval);
+
+                var dayOff = @this.day_off
+
                 $( "#arrival-date" ).datepicker(
                     {minDate :startDate,
                         maxDate: "+2m +1w",
                         beforeShowDay: function(date) {
                             var day = date.getDay(); // Mendapatkan hari (0: Minggu, 1: Senin, dst.)
-                            return [disabledDays.indexOf(day) != -1]; // Menonaktifkan Selasa (2) dan Rabu (3)
+                            var dateString = $.datepicker.formatDate('yy-mm-dd', date);
+                            console.log(dayOff.indexOf(dateString) !== -1);
+                            return [disabledDays.indexOf(day) != -1 && dayOff.indexOf(dateString) == -1]; // Menonaktifkan Selasa (2) dan Rabu (3)
             }
         }
         );

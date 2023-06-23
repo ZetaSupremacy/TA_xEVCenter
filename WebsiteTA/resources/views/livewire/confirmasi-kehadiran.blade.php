@@ -102,9 +102,20 @@
                                 <option value="Public"> Public </option>
                             </select>
                         </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="">
+                                    <label for="email" class="form-label"><b>Email</b></label>
+                                        <input wire:model='emailPengunjung' name="emailPengunjung[]" placeholder="email" required="required" type="email" class="form-control " id="email">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+
+
             @endif
 
       <div class="mb-4 submit-reservation-xev">

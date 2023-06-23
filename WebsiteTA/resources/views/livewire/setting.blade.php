@@ -241,9 +241,9 @@
                 "
             >
                 <h4 style="font-weight: bold; flex: 1">Day Off</h4>
-                <button
+                <a
                     class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
-                    type="button"
+                    href="/setting/dayOff"
                     id="submit-reservation"
                     style="
                         background-color: #fe8f50;
@@ -253,7 +253,7 @@
                     "
                 >
                     Edit
-                </button>
+    </a>
             </div>
             <div
                 class="hi-card mt-4"
@@ -268,16 +268,43 @@
                         style="float: right; border-bottom: 1px solid black"
                     >
                         <tr>
-                            <th style="border-bottom: 1px solid black">Date</th>
-                            <th style="border-bottom: 1px solid black">
+                            <th class="col-3" style="border-bottom: 1px solid black">Date</th>
+                            <th class="col-9" style="border-bottom: 1px solid black">
                                 Description
                             </th>
                         </tr>
+                        @foreach($logs as $log)
                         <tr>
-                            <td style="padding-right: 35px">Text 1</td>
-                            <td>Text 2</td>
+                            <td style="padding-right: 35px">{{ $log->created_at }}</td>
+                            <td>{{ $log->User->name }} {{ $log->description }}</td>
                         </tr>
+                        @endforeach
                     </table>
+                </div>
+                <div class="col-md-12">
+                    <i class="flex-center mt-4 py-2 px-3" style="color: #000000; float: right;">
+                        <ul class="pagination">
+                            @if ($logs->currentPage() > 3)
+                                <li class="page-item"><a class="page-link" href="{{ $logs->url(1) }}">&lt;&lt;</a></li>
+                            @endif
+                        
+                            @if ($logs->currentPage() > 1)
+                                <li class="page-item"><a class="page-link" href="{{ $logs->previousPageUrl() }}">&lt;</a></li>
+                            @endif
+                        
+                            @for ($i = max(1, $logs->currentPage() - 2); $i <= min($logs->lastPage(), $logs->currentPage() + 2); $i++)
+                                <li class="page-item {{ $i === $logs->currentPage() ? 'active' : '' }}"><a class="page-link" href="{{ $logs->url($i) }}">{{ $i }}</a></li>
+                            @endfor
+                        
+                            @if ($logs->currentPage() < $logs->lastPage())
+                                <li class="page-item"><a class="page-link" href="{{ $logs->nextPageUrl() }}">&gt;</a></li>
+                            @endif
+                        
+                            @if ($logs->currentPage() < $logs->lastPage() - 2)
+                                <li class="page-item"><a class="page-link" href="{{ $logs->url($logs->lastPage()) }}">&gt;&gt;</a></li>
+                            @endif
+                        </ul>
+                    </i>
                 </div>
             </div>
         </div>
@@ -395,7 +422,6 @@
                                         aria-describedby="addon-wrapping"
                                     />
                                 </div>
-                                {{-- @dd($dateInterval) --}}
                                 <div class="px-4 mb-3 mt-3">
                                     <button
                                         class="btn btn-primary flex-center py-1 px-4 border-radius-8 btn-sm"
@@ -436,7 +462,6 @@
     </div>
 
     <div
-        wire:ignore
         class="modal fade"
         id="kuota"
         tabindex="-1"

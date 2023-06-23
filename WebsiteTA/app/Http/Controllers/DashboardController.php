@@ -7,28 +7,157 @@ use Illuminate\Http\Request;
 use App\Models\reservation_group;
 use App\Models\group_member;
 use App\Models\feedback;
+use App\Models\pengunjung;
+use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Decrypt;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\feedbackExport;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
+    public function userRole()
+    {
+        $users = User::all();
+        return view('admin.userRole',compact('users'));
+    }
+
+    public function userRoleEdit($id)
+    {
+        $users = User::where('id', $id)->first();
+        $roles = Role::all();
+        return view('admin.userRoleEdit',compact('users','roles'));
+    }
+
+    public function userRoleUpdate(Request $request, $id)
+    {
+        $users = User::where('id', $id)->first();
+        $roles = Role::where('id', $request->role)->first();
+        $users->assignRole($roles);
+        
+        return redirect('/userRole')->with('success', 'Data sudah di Ubah'); 
+    }
+
+    public function rolePermission()
+    {
+        $roles = Role::all();
+        return view('admin.rolePermission',compact('roles'));
+    }
+
+    public function rolePermissionEdit($id)
+    {
+        $role = Role::where('id', $id)->first();
+        return view('admin.rolePermissionEdit',compact('role'));
+    }
+
+    public function rolePermissionUpdate(Request $request, $id)
+    {
+        $registrationPermission = Permission::where('name', 'registration')->first();
+        $settingPermission = Permission::where('name', 'setting')->first();
+        $userRolePermission = Permission::where('name', 'userRole')->first();
+        $checkinPermission = Permission::where('name', 'checkin')->first();
+        $feedbackPermission = Permission::where('name', 'feedback')->first();
+        
+        $role = Role::where('id', $id)->first();
+        
+        if ($request->has('registration')) {
+            
+            $role->givePermissionTo($registrationPermission);
+        } else {
+            $role->revokePermissionTo($registrationPermission);
+        }
+        if ($request->has('setting')) {
+            
+        $role->givePermissionTo($settingPermission);
+        } else {
+            $role->revokePermissionTo($settingPermission);
+        }
+        if ($request->has('userRole')) {
+            
+        $role->givePermissionTo($userRolePermission);
+        } else {
+            $role->revokePermissionTo($userRolePermission);
+        }
+        if ($request->has('checkin')) {
+            
+        $role->givePermissionTo($checkinPermission);
+        } else {
+            $role->revokePermissionTo($checkinPermission);
+        }
+        if ($request->has('feedback')) {
+            
+        $role->givePermissionTo($feedbackPermission);
+        } else {
+            $role->revokePermissionTo($feedbackPermission);
+        }
+
+        return redirect('/rolePermission')->with('success', 'Data sudah di Ubah'); 
+
+    }
+
     public function checkinDashboard(Request $request)
     {
-        $reservasi_group = $reservation_group = reservation_group::whereNotNull('registration_confirmation_at')->get();
+        $reservasi_group = $reservation_group = reservation_group::whereNotNull('attend_confirmation_at')->paginate(10);
         return view('admin.checkinDashboard',compact('reservasi_group'));
     }
 
+    public function checkinDashboardDelete(Request $request)
+    {
+        if($request['id'] == 0 ||$request['id'] ==  null ) {
+            return redirect('/checkinDashboard')->with('success', 'Minimal pilih satu data untuk dihapus'); 
+        }
+
+        $count = count($request['id']);
+        // dd($count);
+        
+        for ($i = 0 ; $i < $count ; $i++ ) {
+            
+            reservation_group::where('id', $request['id'][$i])->update([
+                'registration_confirmation_at' => null,
+                'email_verified_at' => null,
+                'group_code' => null,
+                'attend_confirmation_at' => null,
+                'feedback_sent_at' => null,
+            ]);
+        }  
+        
+        return redirect('/checkinDashboard')->with('success', 'Data sudah berhasil di Hapus'); 
+    }
+    
     public function registrationDashboard(Request $request)
     {
-        $reservasi_group = $reservation_group = reservation_group::whereNotNull('group_code')->get();
-
+        $reservasi_group = $reservation_group = reservation_group::whereNotNull('group_code')->whereNotNull('email_verified_at')->paginate(10);
+        
         foreach ($reservation_group as $group) {
             $group->encrypted_column = Crypt::encrypt($group->id);
         }
 
         return view('admin.registrationDashboard',compact('reservasi_group'));
+        
+    }
+
+    public function registrationDashboardDelete(Request $request)
+    {
+        if($request['id'] == 0 ||$request['id'] ==  null ) {
+            return redirect('/registrationDashboard')->with('success', 'Minimal pilih satu data untuk dihapus'); 
+        }
+        
+        $count = count($request['id']);
+        // dd($count);
+        
+        // dd($request['id']);
+        for ($i = 0 ; $i < $count ; $i++ ) {
+
+            reservation_group::where('id', $request['id'][$i])->update([
+                'registration_confirmation_at' => null,
+                'email_verified_at' => null,
+                'group_code' => null,
+            ]);
+        }  
+        
+        return redirect('/registrationDashboard')->with('success', 'Data sudah berhasil di Hapus'); 
         
     }
 
@@ -45,7 +174,7 @@ class DashboardController extends Controller
 
     public function feedbackDashboard()
     {
-        $feedbacks = feedback::all();
+        $feedbacks = feedback::paginate(10);
         return view('admin.feedbackDashboard', compact('feedbacks'));
     }
   
@@ -190,8 +319,26 @@ class DashboardController extends Controller
    
     public function downloadFeedback()
     {
-        $feedbacks = feedback::all();
+        $feedbacks = pengunjung::join('feedback', 'pengunjung.id', 'feedback.pengunjung_id')->get();
         return Excel::download(new feedbackExport($feedbacks), 'feedbacks.xlsx');
+    }
+
+    public function FeedbackDelete(Request $request)
+    {
+        if($request['id'] == 0 ||$request['id'] ==  null ) {
+            return redirect('/feedbackDashboard')->with('success', 'Minimal pilih satu data untuk dihapus'); 
+        }
+
+        $count = count($request['id']);
+        // dd($count);
+
+        for ($i = 0 ; $i < $count ; $i++ ) {
+            
+            $reservasi = feedback::find($request['id'][$i]);
+            $reservasi->delete();
+        }  
+        
+        return redirect('/feedbackDashboard')->with('success', 'Data sudah berhasil di Hapus'); 
     }
 
 }

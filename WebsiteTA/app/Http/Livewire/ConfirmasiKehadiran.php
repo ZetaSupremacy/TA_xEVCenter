@@ -13,7 +13,7 @@ class ConfirmasiKehadiran extends Component
     public $reservasi_group;
     public $kuotaDisabled = True; 
 
-    public $visitor_name,$gender,$age,$job_title,$institution_category;
+    public $visitor_name,$gender,$age,$job_title,$institution_category,$emailPengunjung;
 
     public $pengunjung = 0;
 
@@ -40,11 +40,13 @@ class ConfirmasiKehadiran extends Component
             'age' => 'required|numeric|min:18',
             'job_title' => 'required',
             'institution_category' => 'required',
+            'emailPengunjung' => 'required',
         ]);
 
         $pengunjung = new pengunjung;
         $group_member = new group_member;
         $pengunjung->visitor_name = $validatedData['visitor_name'];
+        $pengunjung->email = $validatedData['emailPengunjung'];
         $pengunjung->gender = $validatedData['gender'];
         $pengunjung->age = $validatedData['age'];
         $pengunjung->job_title = $validatedData['job_title'];

@@ -5,16 +5,27 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\setting;
 use App\Models\allow_day;
+use App\Models\activity_log;
+use Illuminate\Support\Facades\Auth;
+use Livewire\WithPagination;
+
+
 
 class Seting extends Component
 {
+    
+    use WithPagination;
+    
     public $dateInterval, $kuota, $allow_days, $days;
 
-    
+    private $logs;
+
 
     public function render()
     {
         $this->allow_days = allow_day::pluck('allow_days');
+        $this->logs = activity_log::orderBy('id', 'desc')->paginate(5);
+        // dd($this->logs);
         $daysArray = [];
         foreach ($this->allow_days as $day) {
         switch ($day) {
@@ -45,14 +56,20 @@ class Seting extends Component
     $this->days = $daysArray;
     $this->allow_days = implode(',', $daysArray);
     
-        return view('livewire.setting');
+        return view('livewire.setting', ['logs' => $this->logs]);
     }
 
     public function updateDateInterval()
     {
+
         
         setting::where('id', '1')->update([
             'date_interval' => $this->dateInterval
+        ]);
+        
+        activity_log::create([
+            'user_id' => Auth::user()->id,
+            'description' => "telah mengganti Date Interval menjadi ".$this->dateInterval,
         ]);
 
         session()->flash('success', 'Data Date Interval berhasil disimpan!!!!');
@@ -66,22 +83,13 @@ class Seting extends Component
             'kuota' => $this->kuota
         ]);
 
-        session()->flash('success', 'Data Kuota berhasil disimpan!!!!');
-
-    }
-
-    public function updateAllowDays()
-    {
-        dd($this->allow_days);
-        $this->allow_days = allow_day::pluck('allow_days');
-        
-        setting::where('id', '1')->update([
-            'kuota' => $this->kuota
+        activity_log::create([
+            'user_id' => Auth::user()->id,
+            'description' => "telah mengganti kuota menjadi ".$this->kuota,
         ]);
 
         session()->flash('success', 'Data Kuota berhasil disimpan!!!!');
 
     }
-
 
 }

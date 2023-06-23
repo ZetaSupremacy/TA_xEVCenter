@@ -21,6 +21,8 @@
                 <div class="box-reservation-xev my-3 py-5">
                     <div class="card border-radius-8">
                         <div class="card-body">
+                            <form action="/setting/reservationSession/delete" method="post">
+                                @csrf
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -34,7 +36,7 @@
                                 <tbody>
                                     @foreach($reservationSession as $reservasi)
                                     <tr>
-                                        <td><input class="checkItem" type="checkbox"></td>
+                                        <td><input name="id[]" value={{ $reservasi->id }} class="checkItem" type="checkbox"></td>
                                         <td>{{ $reservasi->session_name }}</td>
                                         <td>{{ $reservasi->start_time }}</td>
                                         <td>{{ $reservasi->end_time }}</td>
@@ -45,9 +47,31 @@
                                 </table>
                                 <div class="col-md-12">
                                     <button class="btn btn-primary flex-center mt-3 py-1 px-4 mx-2 border-radius-8 btn-sm" type="submit" id="submit-reservation" style="background-color: #CE2500; color: white; font-weight: bold; float: left;">Delete</button>
-                                    <i class="fa-solid fa-circle-chevron-right fa-xl flex-center mt-4 py-2 px-3" style="color: #000000; float: right;"></i>
-                                    <i class="fa-solid fa-circle-chevron-left fa-xl flex-center mt-4 py-2 px-3" style="color: #000000; float: right;"></i>
+                                    <i class="flex-center mt-4 py-2 px-3" style="color: #000000; float: right;">
+                                        <ul class="pagination">
+                                            @if ($reservationSession->currentPage() > 3)
+                                                <li class="page-item"><a class="page-link" href="{{ $reservationSession->url(1) }}">&lt;&lt;</a></li>
+                                            @endif
+                                        
+                                            @if ($reservationSession->currentPage() > 1)
+                                                <li class="page-item"><a class="page-link" href="{{ $reservationSession->previousPageUrl() }}">&lt;</a></li>
+                                            @endif
+                                        
+                                            @for ($i = max(1, $reservationSession->currentPage() - 2); $i <= min($reservationSession->lastPage(), $reservationSession->currentPage() + 2); $i++)
+                                                <li class="page-item {{ $i === $reservationSession->currentPage() ? 'active' : '' }}"><a class="page-link" href="{{ $reservationSession->url($i) }}">{{ $i }}</a></li>
+                                            @endfor
+                                        
+                                            @if ($reservationSession->currentPage() < $reservationSession->lastPage())
+                                                <li class="page-item"><a class="page-link" href="{{ $reservationSession->nextPageUrl() }}">&gt;</a></li>
+                                            @endif
+                                        
+                                            @if ($reservationSession->currentPage() < $reservationSession->lastPage() - 2)
+                                                <li class="page-item"><a class="page-link" href="{{ $reservationSession->url($reservationSession->lastPage()) }}">&gt;&gt;</a></li>
+                                            @endif
+                                        </ul>
+                                    </i>
                                 </div>
+                            </form>
                                 
                         </div>
                     </div>

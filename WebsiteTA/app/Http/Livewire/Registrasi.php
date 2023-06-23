@@ -6,22 +6,26 @@ use Livewire\Component;
 use App\Models\reservation_session;
 use App\Models\reservation_group;
 use App\Models\setting;
+use App\Models\dayoff;
 use App\Models\allow_day;
 
 class Registrasi extends Component
 {
 
-    public $reservation_group, $date,$sessions,$sessionselected,$kuota,$dateInterval,$allow_days;
+    public $reservation_group, $date,$sessions,$sessionselected,$dateInterval,$allow_days,$day_off;
     public $kuotaDisabled = True; 
 
     public $pengunjung = 1;
+    // public $kuota= 20;
     
-    public function render()
+    public function mount()
     {       
       
         $this->allow_days = allow_day::pluck('allow_days')->all();
         $this->allow_days = json_encode($this->allow_days);
         $this->sessions = reservation_session::all();
+        $this->day_off = dayoff::pluck('date')->all();
+        $this->day_off = json_encode($this->day_off);
         $this->kuota = setting::pluck('kuota')->first();
         $this->dateInterval = setting::pluck('date_interval')->first();
         

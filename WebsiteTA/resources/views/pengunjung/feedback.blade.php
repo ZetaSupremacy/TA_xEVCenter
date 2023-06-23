@@ -91,7 +91,7 @@
                                     <div class="card border-radius-8 p-5 mb-4 mt-5">
                             
                                         <div class="card-header text-end border-0 bg-transparent flex-end py-0 px-3">
-                                            <h4 class="number-page">3</h4>
+                                            <h4 class="number-page">1</h4>
                                         </div>
                             
                                         <div class="card-body">
@@ -527,7 +527,7 @@
                                     <div class="card border-radius-8 p-5 mb-4">
                             
                                         <div class="card-header text-end border-0 bg-transparent flex-end py-0 px-3">
-                                            <h4 class="number-page">4</h4>
+                                            <h4 class="number-page">2</h4>
                                         </div>
                             
                                         <div class="card-body">
@@ -612,7 +612,7 @@
                                     <div class="card border-radius-8 p-5 mb-4">
                             
                                         <div class="card-header text-end border-0 bg-transparent flex-end py-0 px-3">
-                                            <h4 class="number-page">5</h4>
+                                            <h4 class="number-page">3</h4>
                                         </div>
                             
                                         <div class="card-body">
@@ -703,7 +703,7 @@
                                     <div class="card border-radius-8 p-5 mb-4 mt-5">
                             
                                         <div class="card-header text-end border-0 bg-transparent flex-end py-0 px-3">
-                                            <h4 class="number-page">6</h4>
+                                            <h4 class="number-page">4</h4>
                                         </div>
                             
                                         <div class="card-body">
@@ -934,7 +934,7 @@
                                     <div class="card border-radius-8 p-5 mb-5">
                             
                                         <div class="card-header text-end border-0 bg-transparent flex-end py-0 px-3">
-                                            <h4 class="number-page">7</h4>
+                                            <h4 class="number-page">5</h4>
                                         </div>
                             
                                         <div class="card-body">

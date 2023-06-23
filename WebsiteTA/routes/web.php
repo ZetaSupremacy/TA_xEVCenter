@@ -63,6 +63,12 @@ Route::middleware('auth')->group(function () {
     
     //dashboard
     Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');
+    Route::get('/userRole', [DashboardController::class, 'userRole']);
+    Route::get('/userRole/{id}', [DashboardController::class, 'userRoleEdit']);
+    Route::post('/userRole/edit/{id}', [DashboardController::class, 'userRoleUpdate']);
+    Route::get('/rolePermission', [DashboardController::class, 'rolePermission']);
+    Route::get('/rolePermission/{id}', [DashboardController::class, 'rolePermissionEdit']);
+    Route::post('/rolePermission/Edit/{id}', [DashboardController::class, 'rolePermissionUpdate']);
     Route::get('/allowdate', function () {
         return view('admin.allowDate');
     });
@@ -70,17 +76,31 @@ Route::middleware('auth')->group(function () {
         return view('admin.kuota');
     });
     Route::get('/setting', [settingController::class, 'index']);
+
+    Route::get('/setting/dayOff', [settingController::class, 'dayOff']);
+    Route::get('/setting/dayOff/create', [settingController::class, 'dayOffCreate']);
+    Route::post('/setting/dayOff/Store', [settingController::class, 'dayOffStore']);
+    Route::get('/setting/dayOff/{id}', [settingController::class, 'dayOffEdit']);
+    Route::post('/setting/dayOff/Update', [settingController::class, 'dayOffUpdate']);
+    Route::post('/setting/dayOff/Delete', [settingController::class, 'dayOffDelete']);
+
+
     Route::get('/setting/reservationSession', [settingController::class, 'reservationSession']);
     Route::get('/setting/reservationSession/create', [settingController::class, 'reservationSessionCreate']);
     Route::get('/setting/reservationSession/{id}', [settingController::class, 'reservationSessionEdit']);
     Route::post('/setting/reservationSession/createNew', [settingController::class, 'reservationSessionStore']);
     Route::post('/setting/reservationSession/update', [settingController::class, 'reservationSessionUpdate']);
+    Route::post('/setting/reservationSession/delete', [settingController::class, 'reservationSessionDelete']);
+
     Route::post('/allow_days', [settingController::class, 'updateAllowDays']);
     
     Route::get('/checkinDashboard', [DashboardController::class, 'checkinDashboard']);
+    Route::post('/checkinDashboard/delete', [DashboardController::class, 'checkinDashboardDelete']);
     Route::get('/registrationDashboard', [DashboardController::class, 'registrationDashboard']);
+    Route::post('/registrationDashboard/delete', [DashboardController::class, 'registrationDashboardDelete']);
     Route::get('/registrationDashboard/{encrypt}', [DashboardController::class, 'registrationDashboardDetail']);
     Route::get('/feedbackDashboard', [DashboardController::class, 'feedbackDashboard']);
+    Route::post('/feedbackDashboard/delete', [DashboardController::class, 'FeedbackDelete']);
     Route::get('/download/feedback', [DashboardController::class, 'downloadFeedback']);
 });
 

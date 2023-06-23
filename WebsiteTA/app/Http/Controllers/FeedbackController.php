@@ -51,7 +51,13 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        $pengunjung = group_member::where('pengunjung_id', $request->id)->first();
+        
+        if ($pengunjung->feedback != null) {
+
+            return redirect()->to('/pengunjung')->with('success', 'Maaf anda sudah mengisi feedback sebelumnya');
+        }
+
         $request->validate([
             'id' => 'required',
             'how_they_know' =>'required',

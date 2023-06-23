@@ -191,15 +191,21 @@ class PengunjungController extends Controller
     public function attendConfirmation(Request $request)
     {
 
-        if($request['member'] == null) {
-            return redirect('/validateCode')->with('message', 'Data Tidak Valid'); 
-        }
+        // if($request['member'] == null) {
+        //     return redirect('/validateCode')->with('message', 'Data Tidak Valid'); 
+        // }
 
-        if(now()->format("m/d/Y") != $request['tanggal']) {
-            return redirect('/validateCode')->with('message', 'Tanggal tidak valid'); 
-        }
+        // if(now()->format("m/d/Y") != $request['tanggal']) {
+        //     return redirect('/validateCode')->with('message', 'Tanggal tidak valid'); 
+        // }
 
         $count = count($request['member']);
+        $reservasi = group_member::where('id', $request->groupid)->first();
+        $reservasi = reservation_group::where('id', $reservasi['reservasi_id'])->first();
+        // dd($reservasi);
+        reservation_group::where('id', $reservasi['id'])->update([
+        'total_member' => $count,
+        ]);
         
         for ($i = 0 ; $i < $count ; $i++ ) {
             
@@ -214,7 +220,7 @@ class PengunjungController extends Controller
             'cryptID' => Crypt::encryptString($pengunjung->id),
             'email' => $pengunjung->email,
             ];
-
+            
             dispatch(new sendFeedbackJob($mail));
         }
 
@@ -222,8 +228,6 @@ class PengunjungController extends Controller
             'group_code' => null,
             'attend_confirmation_at' => now(),
         ]);
-
-        
 
         return redirect('/validateCode')->with('message', 'Data sudah berhasil di tambahkan'); 
         }
