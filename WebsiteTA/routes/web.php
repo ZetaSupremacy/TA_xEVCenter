@@ -60,6 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/validateCode', [UserController::class, 'validateCode']);
     Route::post('/ConfirmationCode', [UserController::class, 'ConfirmationCode']);
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+    Route::post('/blastEmail/{id}', [emailController::class, 'blastEmail']);
     
     //dashboard
     Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');

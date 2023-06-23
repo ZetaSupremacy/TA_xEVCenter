@@ -12,6 +12,8 @@ use App\Mail\sendCode;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use App\Models\reservation_group;
+use App\Models\group_member;
+use App\Models\pengunjung;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use BaconQrCode\Renderer\ImageRenderer;
@@ -21,6 +23,8 @@ use BaconQrCode\Writer;
 use File;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use App\Jobs\sendFeedbackJob;
+
 
 class emailController extends Controller
 {
@@ -124,6 +128,48 @@ class emailController extends Controller
         }
 
         return redirect('/pengunjung')->with('message', 'tidak bisa');
+        
+    }
+    public function blastEmail(Request $request,$id){
+        
+        
+        $reservasi = group_member::where('reservasi_id', $id)->where('kehadiran', 1)->where('feedback', 0)->get();
+        
+        foreach($reservasi as $email) {
+            
+            $pengunjung = pengunjung::where('id', $email->pengunjung_id)->first();
+        
+            $mail = [
+            'cryptID' => Crypt::encryptString($pengunjung->id),
+            'email' => $pengunjung->email,
+            ];
+            
+            dispatch(new sendFeedbackJob($mail));
+
+        }
+        
+        return redirect('/checkinDashboard')->with('success', 'Email sudah berhasil di kirimkan'); 
+
+        // if (Hash::check($group_code, $hashCode)){
+        //     $reservasi_group = reservation_group::where('group_code', $group_code)->first(); 
+        //     $tanggalRegistrasi = $reservasi_group->registration_confirmation_at;
+        //     $tanggalRegistrasi = Carbon::parse($tanggalRegistrasi);
+        //     $tanggalSekarang = Carbon::now();
+    
+        //     if ($tanggalSekarang->diffInDays($tanggalRegistrasi) <= 3){
+    
+        //         reservation_group::where('group_code', $group_code)->update([
+        //             'registration_confirmation_at' => null,
+        //             'email_verified_at' => null,
+        //             'group_code' => null,
+        //         ]);
+        //         return redirect('/pengunjung')->with('message', 'sudah dihapus');
+        //     }
+    
+        //     return redirect('/pengunjung')->with('message', 'tidak bisa');
+        // }
+    
+        // return redirect('/pengunjung')->with('message', 'tidak bisa');
         
     }
 }

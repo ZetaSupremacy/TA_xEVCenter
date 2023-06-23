@@ -212,16 +212,6 @@ class PengunjungController extends Controller
             group_member::where('id', $request['member'][$i])->update([
                 'Kehadiran' => true,
             ]);
-
-            $member = group_member::where('id', $request['member'][$i])->first();
-            $pengunjung = pengunjung::where('id', $member->pengunjung_id)->first();
-            
-            $mail = [
-            'cryptID' => Crypt::encryptString($pengunjung->id),
-            'email' => $pengunjung->email,
-            ];
-            
-            dispatch(new sendFeedbackJob($mail));
         }
 
         reservation_group::where('id', $request['groupid'])->update([
