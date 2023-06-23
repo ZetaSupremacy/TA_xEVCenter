@@ -52,7 +52,9 @@
                                     </tbody>
                                 </table>
                                 <div class="col-md-12">
+                                    @can('registration')
                                     <button class="btn btn-primary flex-center mt-3 py-1 px-4 mx-2 border-radius-8 btn-sm" type="submit" id="submit-reservation" style="background-color: #CE2500; color: white; font-weight: bold; float: left;">Delete</button>
+                                    @endcan
                                     <i class="flex-center mt-4 py-2 px-3" style="color: #000000; float: right;">
                                         <ul class="pagination">
                                             @if ($reservasi_group->currentPage() > 3)

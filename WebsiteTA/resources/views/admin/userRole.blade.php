@@ -16,6 +16,7 @@
                         </div>
                     </div>
                 </div>
+                <a class="btn btn-primary mx-2 my-2" href="/userRoleCreate" style="float: right; background-color: #04BD00; color: white;"><i class="fa-solid fa-plus fa-lg px-2"></i>New</a>
 
                 <div class="box-reservation-xev my-3 py-5">
                     <div class="card border-radius-8">
@@ -37,13 +38,19 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td> 
-                                            @foreach ($user->roles as $role)
-                                            {{ $role->name }}
-                                            @endforeach
-
+                                            @if($user->roles->isempty())
+                                            {{ "Belum masuk role manapun" }}
+                                            @else
+                                            {{ $user->roles[0]->name }}
+                                                @endif
                                         </td>
                                         <td><a href="/userRole/{{$user->id}}" class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" id="submit-reservation" style="background-color: #FE8F50; color: white; font-weight: bold;">Edit</a></td>
-                                    </tr>
+                                        <form action="/deleteUser" method="post">
+                                            @csrf
+                                            <input type="hidden" value={{ $user->id }} name="id"/>
+                                        <td><button type="submit" class="btn btn-danger flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" id="submit-reservation" style="color: white; font-weight: bold;">Delete</button></td>
+                                        </form>
+                                        </tr>
                                     @endforeach
                                 
                                     </tbody>

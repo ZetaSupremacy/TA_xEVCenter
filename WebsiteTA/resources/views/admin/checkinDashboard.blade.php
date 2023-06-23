@@ -47,15 +47,18 @@
                                         <td>{{ $reservasiGroup->total_member }}</td>
                                         <td><button class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $reservasiGroup->id  }}" id="submit-reservation" style="background-color: #00B934; color: white; font-weight: bold;">Detail</button>
                                             
+                                    @can('checkin')
                                             <button class="btn btn-primary flex-center mt-1 py-1 px-3 border-radius-8 btn-sm" type="button" id="submit-reservation" style="background-color: #008DB9; color: white; font-weight: bold;" onclick="setAction('/blastEmail/{{ $reservasiGroup->id }}')">Kirim Link</button></td>
-                                            
+                                    @endcan
                                     </tr>
                                     @endforeach
                                 
                                     </tbody>
                                 </table>
                                 <div class="col-md-12">
+                                    @can('checkin')
                                     <button class="btn btn-primary flex-center mt-3 py-1 px-4 mx-2 border-radius-8 btn-sm" type="button" id="submit-reservation" style="background-color: #CE2500; color: white; font-weight: bold; float: left;" onclick="setAction('/checkinDashboard/delete')">Delete</button>
+                                    @endcan
                                     <i class="flex-center mt-4 py-2 px-3" style="color: #000000; float: right;">
                                         <ul class="pagination">
                                             @if ($reservasi_group->currentPage() > 3)

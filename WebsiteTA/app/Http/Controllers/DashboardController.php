@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\feedbackExport;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -22,6 +23,25 @@ class DashboardController extends Controller
     {
         $users = User::all();
         return view('admin.userRole',compact('users'));
+    }
+
+    public function userRoleCreate()
+    {
+        return view('admin.userRoleCreate');
+    }
+
+    public function userRoleStore(Request $request)
+    {
+        $validateuser = $request->validate([
+            'name' => 'required|max:32|unique:users',
+            'password' => 'required|min:8',
+        ]);
+        
+        $validateuser['password'] = Hash::make($validateuser['password']);
+
+        User::create($validateuser);
+
+        return redirect('/userRole')->with('success', 'User Berhasil ditambahkan'); 
     }
 
     public function userRoleEdit($id)
@@ -46,10 +66,48 @@ class DashboardController extends Controller
         return view('admin.rolePermission',compact('roles'));
     }
 
+    public function createNewRoles(Request $request)
+    {
+        $roles = Role::all();
+
+        foreach($roles as $role){
+           if (strtolower($request->role) ==  strtolower($role->name)){
+                return redirect('/rolePermission')->with('success', 'Role sudah ada'); 
+           }
+
+        }
+        
+        $newRole = Role::create([
+            'name' => $request->role,
+        ]);
+        
+        $registrationPermission = Permission::where('name', 'registration')->first();
+        $settingPermission = Permission::where('name', 'setting')->first();
+        $userRolePermission = Permission::where('name', 'userRole')->first();
+        $checkinPermission = Permission::where('name', 'checkin')->first();
+        $feedbackPermission = Permission::where('name', 'feedback')->first();
+        
+        $newRole->givePermissionTo($registrationPermission);
+        $newRole->givePermissionTo($checkinPermission);
+        $newRole->givePermissionTo($feedbackPermission);
+        
+        return redirect('/rolePermission')->with('success', 'Role Baru sudah ditambahkan'); 
+    }
+
     public function rolePermissionEdit($id)
     {
         $role = Role::where('id', $id)->first();
         return view('admin.rolePermissionEdit',compact('role'));
+    }
+
+    public function roleDelete(Request $request)
+    {
+        
+        $role = Role::where('id', $request->id)->first();
+
+        $role->delete();
+        
+        return redirect('/rolePermission')->with('success', 'Role sudah dihapus'); 
     }
 
     public function rolePermissionUpdate(Request $request, $id)

@@ -121,7 +121,7 @@
                     <h5 style="flex: 1">Quota / Session</h5>
                     <h5 style="float: right">{{ $kuota }}</h5>
                 </div>
-
+@can('setting')
                 <!-- <div
                     class="si-card-body1 d-flex align-items-center px-2 mt-2 mb-3 pt-2"
                     style="border: 1px solid black;
@@ -266,7 +266,7 @@
                 <h4 style="font-weight: bold; flex: 1">User Role</h4>
                 <a
                     class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
-                    href="/setting/reservationSession"
+                    href="/userRole"
                     id="submit-reservation"
                     style="
                         background-color: #fe8f50;
@@ -289,7 +289,7 @@
                 <h4 style="font-weight: bold; flex: 1">User Permission</h4>
                 <a
                     class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
-                    href="/setting/reservationSession"
+                    href="/rolePermission"
                     id="submit-reservation"
                     style="
                         background-color: #fe8f50;
@@ -580,6 +580,7 @@
         </div>
     </div>
 </div>
+@endcan
 
 <script>
     $(document).ready(function () {

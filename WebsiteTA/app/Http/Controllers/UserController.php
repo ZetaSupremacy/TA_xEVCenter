@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Models\pengunjung;
+use App\Models\User;
 use App\Models\reservation_group;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,6 +38,14 @@ class UserController extends Controller
     public function validateCode() {
 
         return view('admin.checkin');
+
+    }
+
+    public function deleteUser(Request $request) {
+
+        User::where('id', $request->id)->delete();
+        
+        return redirect('/userRole')->with('success', 'Data Berhasil dihapus'); 
 
     }
 

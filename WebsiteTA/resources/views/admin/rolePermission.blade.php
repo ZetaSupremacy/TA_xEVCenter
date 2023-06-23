@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <a href="/setting/reservationSession/create" class="btn btn-primary mx-2 my-2" style="float: right; background-color: #04BD00; color: white;"><i class="fa-solid fa-plus fa-lg px-2"></i>New</a> --}}
+                <button class="btn btn-primary mx-2 my-2" type="button" data-bs-toggle="modal" data-bs-target="#New" style="float: right; background-color: #04BD00; color: white;"><i class="fa-solid fa-plus fa-lg px-2"></i>New</button>
 
                 <div class="box-reservation-xev my-3 py-5">
                     <div class="card border-radius-8">
@@ -77,6 +77,11 @@
                                             @endif
                                         </td>
                                         <td><a href="/rolePermission/{{$role->id}}" class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" id="submit-reservation" style="background-color: #FE8F50; color: white; font-weight: bold;">Edit</a></td>
+                                        <form action="/roleDelete" method="post">
+                                            @csrf
+                                        <input type="hidden" name="id" value="{{ $role->id }}">
+                                        <td><button type="submit" class="btn btn-danger flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" id="submit-reservation" style=" color: white; font-weight: bold;">Delete</button></td>
+                                        </form>
                                     </tr>
                                     @endforeach
                                 
@@ -114,6 +119,78 @@
                 </div>
             </div>
         </div>
+
+        <div
+        class="modal fade"
+        id="New"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Create New Roles
+                    </h1>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="card" style="background-color: #c3c3c3">
+                            <form action="/createNewRoles" method="post">
+                                @csrf
+                                <div class="card-body mx-3 form-group">
+                                    <input
+                                        type="text"
+                                        id="skill"
+                                        name="role"
+                                        class="form-control"
+                                    />
+                                </div>
+                                <div class="px-4 mb-3 mt-3">
+                                    <button
+                                        class="btn btn-primary flex-center py-1 px-4 border-radius-8 btn-sm"
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                        style="
+                                            background-color: #acbcb0;
+                                            color: black;
+                                            font-weight: bold;
+                                            float: left;
+                                        "
+                                    >
+                                        Back
+                                    </button>
+                                    <button
+                                        class="btn btn-primary flex-center px-4 mx-2 border-radius-8 btn-sm"
+                                        type="submit"
+                                        id="submit-reservation"
+                                        style="
+                                            background-color: #00ce2d;
+                                            color: white;
+                                            font-weight: bold;
+                                            float: right;
+                                        "
+                                    >
+                                        Save
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 @endsection
