@@ -253,8 +253,54 @@
                     "
                 >
                     Edit
-    </a>
+                </a>
             </div>
+            <div
+                class="card-body d-flex align-items-center mt-1"
+                style="
+                    background-color: #ffffff;
+                    border: 15px solid;
+                    border-color: #c3c3c3;
+                "
+            >
+                <h4 style="font-weight: bold; flex: 1">User Role</h4>
+                <a
+                    class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
+                    href="/setting/reservationSession"
+                    id="submit-reservation"
+                    style="
+                        background-color: #fe8f50;
+                        color: white;
+                        font-weight: bold;
+                        float: right;
+                    "
+                >
+                    Edit
+                </a>
+        </div>
+        <div
+                class="card-body d-flex align-items-center mt-1"
+                style="
+                    background-color: #ffffff;
+                    border: 15px solid;
+                    border-color: #c3c3c3;
+                "
+            >
+                <h4 style="font-weight: bold; flex: 1">User Permission</h4>
+                <a
+                    class="btn btn-primary flex-center px-5 mx-2 border-radius-8 btn-sm"
+                    href="/setting/reservationSession"
+                    id="submit-reservation"
+                    style="
+                        background-color: #fe8f50;
+                        color: white;
+                        font-weight: bold;
+                        float: right;
+                    "
+                >
+                    Edit
+                </a>
+        </div>
             <div
                 class="hi-card mt-4"
                 style=" background-color: #ffffff;
