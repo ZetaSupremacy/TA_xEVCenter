@@ -45,7 +45,8 @@
                                         <td>{{ $reservasiGroup->pic_name }}</td>
                                         <td>{{ $reservasiGroup->email }}</td>
                                         <td>{{ $reservasiGroup->total_member }}</td>
-                                        <td><button class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $reservasiGroup->id  }}" id="submit-reservation" style="background-color: #00B934; color: white; font-weight: bold;">Detail</button></td>
+                                        <td><button class="btn btn-primary flex-center mt-1 py-1 px-4 border-radius-8 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $reservasiGroup->id  }}" id="submit-reservation" style="background-color: #00B934; color: white; font-weight: bold;">Detail</button>
+                                            <button class="btn btn-primary flex-center mt-1 py-1 px-3 border-radius-8 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $reservasiGroup->id  }}" id="submit-reservation" style="background-color: #008DB9; color: white; font-weight: bold;">Kirim Link</button></td>
                                     </tr>
                                     @endforeach
                                 
