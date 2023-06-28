@@ -98,7 +98,7 @@ class emailController extends Controller
 
         Mail::to($reservasi_group->email)->send(new sendCode($mail));
 
-        File::delete(public_path('/'.$reservasi_group->group_code.'.png'));
+        // File::delete(public_path('/'.$reservasi_group->group_code.'.png'));
 
         reservation_group::where('id', $reservasi_group->id)->update([
             'registration_confirmation_at' => now()

@@ -9,7 +9,6 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Models\pengunjung;
 use App\Models\User;
 use App\Models\reservation_group;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
