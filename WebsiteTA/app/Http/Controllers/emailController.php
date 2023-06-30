@@ -90,7 +90,7 @@ class emailController extends Controller
         $pdf->stream();
         $mail = [
             'code' => $reservasi_group->group_code,
-            'codeHash' => hash::make($reservasi_group->group_code),
+            'codeHash' => Crypt::encryptString($reservasi_group->group_code),
             'cryptCode' => $cryptCode,
         ];
         
@@ -107,8 +107,10 @@ class emailController extends Controller
         return redirect('/pengunjung')->with('message', 'terima kasih sudah melakukan registrasi');
     }
 
-    public function registrationDeleted($group_code,$hashCode){
-        if (Hash::check($group_code, $hashCode)){
+    public function registrationDeleted($group_code,$cryptCode){
+        $cryptCode = Crypt::decryptString($cryptCode);
+
+        if ($group_code == $cryptCode){
             $reservasi_group = reservation_group::where('group_code', $group_code)->first(); 
             $tanggalRegistrasi = $reservasi_group->registration_confirmation_at;
             $tanggalRegistrasi = Carbon::parse($tanggalRegistrasi);
