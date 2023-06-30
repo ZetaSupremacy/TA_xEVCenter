@@ -40,7 +40,7 @@ Route::get('/test2', function () {
 //email
 Route::get('/email/{group_code}',[emailController::class, 'emailVerifikasi']);
 Route::post('/email/confirmationCode/{id}',[emailController::class, 'codeVerifikasi']);
-Route::get('/email/deleted/{group_code}',[emailController::class, 'registrationDeleted']);
+Route::get('/email/deleted/{group_code}/{cryptCode}',[emailController::class, 'registrationDeleted']);
 
 //-------------------------------
 
