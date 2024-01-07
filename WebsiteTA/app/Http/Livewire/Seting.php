@@ -50,7 +50,6 @@ class Seting extends Component
             case '6':
                 $daysArray[] = "Sabtu";
                 break;
-        // Tambahkan case untuk nilai lainnya jika diperlukan
     }
 }
     $this->days = $daysArray;

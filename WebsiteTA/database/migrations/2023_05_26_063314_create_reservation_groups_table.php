@@ -16,7 +16,6 @@ return new class extends Migration
         
         Schema::create('reservation_groups', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('pengunjung_id')->references('id')->on('pengunjung')->onDelete('cascade');
             $table->integer('reservation_sessions_id')->references('id')->on('reservation_sessions');
             $table->string('pic_name');
             $table->string('nama_group');

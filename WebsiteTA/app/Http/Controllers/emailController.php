@@ -132,6 +132,7 @@ class emailController extends Controller
         return redirect('/pengunjung')->with('message', 'tidak bisa');
         
     }
+    
     public function blastEmail(Request $request,$id){
         
         
@@ -151,27 +152,6 @@ class emailController extends Controller
         }
         
         return redirect('/checkinDashboard')->with('success', 'Email sudah berhasil di kirimkan'); 
-
-        // if (Hash::check($group_code, $hashCode)){
-        //     $reservasi_group = reservation_group::where('group_code', $group_code)->first(); 
-        //     $tanggalRegistrasi = $reservasi_group->registration_confirmation_at;
-        //     $tanggalRegistrasi = Carbon::parse($tanggalRegistrasi);
-        //     $tanggalSekarang = Carbon::now();
-    
-        //     if ($tanggalSekarang->diffInDays($tanggalRegistrasi) <= 3){
-    
-        //         reservation_group::where('group_code', $group_code)->update([
-        //             'registration_confirmation_at' => null,
-        //             'email_verified_at' => null,
-        //             'group_code' => null,
-        //         ]);
-        //         return redirect('/pengunjung')->with('message', 'sudah dihapus');
-        //     }
-    
-        //     return redirect('/pengunjung')->with('message', 'tidak bisa');
-        // }
-    
-        // return redirect('/pengunjung')->with('message', 'tidak bisa');
         
     }
 }

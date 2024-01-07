@@ -168,7 +168,6 @@ class DashboardController extends Controller
         }
 
         $count = count($request['id']);
-        // dd($count);
         
         for ($i = 0 ; $i < $count ; $i++ ) {
             
@@ -186,7 +185,7 @@ class DashboardController extends Controller
     
     public function registrationDashboard(Request $request)
     {
-        $reservasi_group = $reservation_group = reservation_group::whereNotNull('group_code')->whereNotNull('email_verified_at')->paginate(10);
+        $reservasi_group = $reservation_group = reservation_group::whereNotNull('group_code')->whereNotNull('registration_confirmation_at')->paginate(10);
         
         foreach ($reservation_group as $group) {
             $group->encrypted_column = Crypt::encrypt($group->id);
@@ -203,9 +202,7 @@ class DashboardController extends Controller
         }
         
         $count = count($request['id']);
-        // dd($count);
-        
-        // dd($request['id']);
+
         for ($i = 0 ; $i < $count ; $i++ ) {
 
             reservation_group::where('id', $request['id'][$i])->update([
@@ -236,7 +233,6 @@ class DashboardController extends Controller
         return view('admin.feedbackDashboard', compact('feedbacks'));
     }
   
-    
     public function Dashboard()
     {
         $Chart = new \stdClass();
@@ -341,7 +337,8 @@ class DashboardController extends Controller
         $Chart->howTheyKnow_News = feedback::where('how_they_know', 'News')->count();
         $Chart->howTheyKnow_Friend = feedback::where('how_they_know', 'Friend / Family')->count();
         $Chart->howTheyKnow_Friend = feedback::where('how_they_know', 'Youtube')->count();
-        $Chart->howTheyKnow_Other = $Chart->feedback - ($Chart->howTheyKnow_LinkedIn + $Chart->howTheyKnow_Instagram + $Chart->howTheyKnow_Internal + $Chart->howTheyKnow_News + $Chart->howTheyKnow_Friend);
+        $Chart->howTheyKnow_Other = $Chart->feedback - ($Chart->howTheyKnow_LinkedIn + $Chart->howTheyKnow_Instagram + $Chart->howTheyKnow_Internal + 
+        $Chart->howTheyKnow_News + $Chart->howTheyKnow_Friend);
         
         $Chart->knowledgeBefore_bad = feedback::where('knowledge_before_xev', '1')->count();
         $Chart->knowledgeBefore_fair = feedback::where('knowledge_before_xev', '2')->count();
@@ -388,7 +385,6 @@ class DashboardController extends Controller
         }
 
         $count = count($request['id']);
-        // dd($count);
 
         for ($i = 0 ; $i < $count ; $i++ ) {
             

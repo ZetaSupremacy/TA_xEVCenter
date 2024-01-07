@@ -9,7 +9,6 @@ class Dayoff extends Model
 {    
     public $timestamps = false;
     use HasFactory;
-    // protected $table = 'dayoffs';
     
     protected $guarded = [
         'id'

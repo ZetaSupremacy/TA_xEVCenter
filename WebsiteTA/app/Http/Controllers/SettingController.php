@@ -142,11 +142,10 @@ class SettingController extends Controller
     public function reservationSessionDelete(Request $request)
     {
         if($request['id'] == 0 ||$request['id'] ==  null ) {
-            return redirect('/setting/dayOff')->with('success', 'Minimal pilih satu data untuk dihapus'); 
+            return redirect('/setting/reservationSession')->with('success', 'Minimal pilih satu data untuk dihapus'); 
         }
         
         $count = count($request['id']);
-        // dd($count);
 
         for ($i = 0 ; $i < $count ; $i++ ) {
             
@@ -220,13 +219,11 @@ class SettingController extends Controller
     {   
         $activity = $request->allow_days;
         $request->allow_days = str_replace(" ", "", $request->allow_days);
-        $request->allow_days = strtolower($request->allow_days);
-        
+        $request->allow_days = strtolower($request->allow_days);    
         $request->allow_days = explode(",", $request->allow_days);
         $request->allow_days = array_unique($request->allow_days);
         allow_day::truncate();
         
-        // dd($request->allow_days);
        foreach ($request->allow_days as $day) {
         switch ($day) {
             case 'senin':
@@ -265,14 +262,11 @@ class SettingController extends Controller
                 ]);
                 break;
     }};       
-    
     activity_log::create([
         'user_id' => Auth::user()->id,
         'description' => "telah mengganti allow days menjadi ".$activity,
     ]);
-
     return redirect('/setting')->with('success', 'Data sudah berhasil di update'); 
-    
     }
 
 }
